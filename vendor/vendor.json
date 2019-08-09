@@ -1,0 +1,492 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "qlEzrgKgIkh7y0ePm9BNo1cNdXo=",
+			"path": "github.com/gin-contrib/sse",
+			"revision": "54d8467d122d380a14768b6b4e5cd7ca4755938f",
+			"revisionTime": "2019-06-02T15:02:53Z"
+		},
+		{
+			"checksumSHA1": "x9SLAMNta3AwbyrY/x1IPFBujy8=",
+			"path": "github.com/gin-gonic/gin",
+			"revision": "73c4633943d596bdbeaa7d02cebdd4bd0c4f4630",
+			"revisionTime": "2019-06-03T14:52:33Z"
+		},
+		{
+			"checksumSHA1": "SohLqPWFKw8qKTCx4tMpG9bSDPI=",
+			"path": "github.com/gin-gonic/gin/binding",
+			"revision": "73c4633943d596bdbeaa7d02cebdd4bd0c4f4630",
+			"revisionTime": "2019-06-03T14:52:33Z"
+		},
+		{
+			"checksumSHA1": "rST0S8cuVbM57VmJhWXhKNUkKTc=",
+			"path": "github.com/gin-gonic/gin/internal/json",
+			"revision": "73c4633943d596bdbeaa7d02cebdd4bd0c4f4630",
+			"revisionTime": "2019-06-03T14:52:33Z"
+		},
+		{
+			"checksumSHA1": "4XLWNQHHCyHJCCROC4UXSn7U1OM=",
+			"path": "github.com/gin-gonic/gin/render",
+			"revision": "73c4633943d596bdbeaa7d02cebdd4bd0c4f4630",
+			"revisionTime": "2019-06-03T14:52:33Z"
+		},
+		{
+			"checksumSHA1": "zGYOyUB58GVhLkrwhG1ut66SPec=",
+			"path": "github.com/go-sql-driver/mysql",
+			"revision": "877a9775f06853f611fb2d4e817d92479242d1cd",
+			"revisionTime": "2019-05-10T10:23:35Z"
+		},
+		{
+			"checksumSHA1": "TKzQ/kDIZXHSfbnLcAsAnxweOnY=",
+			"path": "github.com/gohouse/converter",
+			"revision": "c92ef17d3ab56a6654067451fb0db554f5b41e6f",
+			"revisionTime": "2019-03-26T03:28:59Z"
+		},
+		{
+			"checksumSHA1": "CGj8VcI/CpzxaNqlqpEVM7qElD4=",
+			"path": "github.com/golang/protobuf/proto",
+			"revision": "6c65a5562fc06764971b7c5d05c76c75e84bdbf7",
+			"revisionTime": "2019-07-01T18:22:01Z"
+		},
+		{
+			"checksumSHA1": "aEiR2m3NGaMGTbUW5P+w5gKFyc8=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/github.com/golang/protobuf/ptypes",
+			"path": "github.com/golang/protobuf/ptypes",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "2/Xg4L9IVGQRJB8zCELZx7/Z4HU=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/github.com/golang/protobuf/ptypes/any",
+			"path": "github.com/golang/protobuf/ptypes/any",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "RE9rLveNHapyMKQC8p10tbkUE9w=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/github.com/golang/protobuf/ptypes/duration",
+			"path": "github.com/golang/protobuf/ptypes/duration",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "seEwY2xETpK9yHJ9+bHqkLZ0VMU=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/github.com/golang/protobuf/ptypes/timestamp",
+			"path": "github.com/golang/protobuf/ptypes/timestamp",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "4DgEcOv2o9NyZAHCbdS76mToqpU=",
+			"path": "github.com/json-iterator/go",
+			"revision": "27518f6661eba504be5a7a9a9f6d9460d892ade3",
+			"revisionTime": "2019-06-21T16:12:01Z"
+		},
+		{
+			"checksumSHA1": "74gCzvJiE6bXX3i4vIVCYhffDHc=",
+			"path": "github.com/mattn/go-isatty",
+			"revision": "da60ac76bf7019a8b005f8dd1ad9d1a0e6434155",
+			"revisionTime": "2019-07-08T05:43:38Z"
+		},
+		{
+			"checksumSHA1": "ZTcgWKWHsrX0RXYVXn5Xeb8Q0go=",
+			"path": "github.com/modern-go/concurrent",
+			"revision": "bacd9c7ef1dd9b15be4a9909b8ac7a4e313eec94",
+			"revisionTime": "2018-03-06T01:26:44Z"
+		},
+		{
+			"checksumSHA1": "qvH48wzTIV3QKSDqI0dLFtVjaDI=",
+			"path": "github.com/modern-go/reflect2",
+			"revision": "94122c33edd36123c84d5368cfb2b69df93a0ec8",
+			"revisionTime": "2018-07-18T01:23:57Z"
+		},
+		{
+			"checksumSHA1": "DH7n7umhN4yjK/X5HmyAWfYVJFA=",
+			"path": "github.com/ugorji/go/codec",
+			"revision": "0e7b41a4180a29ac92dd9a3621f3fe776a19b6e1",
+			"revisionTime": "2019-06-10T21:01:06Z"
+		},
+		{
+			"checksumSHA1": "byl77NJm2QiR5tfeBzAf2QpeQUc=",
+			"path": "go.uber.org/atomic",
+			"revision": "8dc6146f7569370a472715e178d8ae31172ee6da",
+			"revisionTime": "2018-10-18T21:50:23Z"
+		},
+		{
+			"checksumSHA1": "HephvKOmm5xmOrCzhKEtcw7lqE8=",
+			"path": "go.uber.org/multierr",
+			"revision": "ddea229ff1dff9e6fe8a6c0344ac73b09e81fce5",
+			"revisionTime": "2018-01-22T17:25:45Z"
+		},
+		{
+			"checksumSHA1": "bs4Qet93Z8f2eB8MVdM2hXXTyso=",
+			"path": "go.uber.org/zap",
+			"revision": "67bc79d13d155c02fd008f721863ff8cc5f30659",
+			"revisionTime": "2018-08-14T18:34:19Z"
+		},
+		{
+			"checksumSHA1": "eC/XVln77aRfE/VocbN0NWdlRdg=",
+			"path": "go.uber.org/zap/buffer",
+			"revision": "67bc79d13d155c02fd008f721863ff8cc5f30659",
+			"revisionTime": "2018-08-14T18:34:19Z"
+		},
+		{
+			"checksumSHA1": "MuxOAtZEsJitlWBzhmpm2vGiHok=",
+			"path": "go.uber.org/zap/internal/bufferpool",
+			"revision": "67bc79d13d155c02fd008f721863ff8cc5f30659",
+			"revisionTime": "2018-08-14T18:34:19Z"
+		},
+		{
+			"checksumSHA1": "uC0L9eCSAYcCWNC8udJk/t1vvIU=",
+			"path": "go.uber.org/zap/internal/color",
+			"revision": "67bc79d13d155c02fd008f721863ff8cc5f30659",
+			"revisionTime": "2018-08-14T18:34:19Z"
+		},
+		{
+			"checksumSHA1": "b80CJExrVpXu3SA1iCQ6uLqTn2c=",
+			"path": "go.uber.org/zap/internal/exit",
+			"revision": "67bc79d13d155c02fd008f721863ff8cc5f30659",
+			"revisionTime": "2018-08-14T18:34:19Z"
+		},
+		{
+			"checksumSHA1": "iH3qg/pvsxQ9XW5t8FTc6veuYhY=",
+			"path": "go.uber.org/zap/zapcore",
+			"revision": "67bc79d13d155c02fd008f721863ff8cc5f30659",
+			"revisionTime": "2018-08-14T18:34:19Z"
+		},
+		{
+			"checksumSHA1": "pCY4YtdNKVBYRbNvODjx8hj0hIs=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/golang.org/x/net/http/httpguts",
+			"path": "golang.org/x/net/http/httpguts",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "AmeYQUH7nq7nsV5lhvMH93E2eVY=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/golang.org/x/net/http2",
+			"path": "golang.org/x/net/http2",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "VJwSx33rjMC7O6K2O50Jw6o1vw4=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/golang.org/x/net/http2/hpack",
+			"path": "golang.org/x/net/http2/hpack",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "vL6l4FZWitsxht0uqA/GpDNkNNc=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/golang.org/x/net/idna",
+			"path": "golang.org/x/net/idna",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "UxahDzW2v4mf/+aFxruuupaoIwo=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/golang.org/x/net/internal/timeseries",
+			"path": "golang.org/x/net/internal/timeseries",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "HvmG9LfStMLF+hIC7xR4SxegMis=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/golang.org/x/net/trace",
+			"path": "golang.org/x/net/trace",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "8MKHlaOccT30d8H3NX2Ruy9EFBg=",
+			"path": "golang.org/x/sys/unix",
+			"revision": "1393eb0183657fb29200106b17a5042ec6e48dbe",
+			"revisionTime": "2019-07-29T19:58:47Z"
+		},
+		{
+			"checksumSHA1": "CbpjEkkOeh0fdM/V8xKDdI0AA88=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/golang.org/x/text/secure/bidirule",
+			"path": "golang.org/x/text/secure/bidirule",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "R9iBDY+aPnT+8pyRcqGjXq5QixA=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/golang.org/x/text/transform",
+			"path": "golang.org/x/text/transform",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "vv9EDuekZgHxFbh+0jJhB7jLZXY=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/golang.org/x/text/unicode/bidi",
+			"path": "golang.org/x/text/unicode/bidi",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "8fzd6fnxrstdNSVg+Srhf1nKgek=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/golang.org/x/text/unicode/norm",
+			"path": "golang.org/x/text/unicode/norm",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "knF2NGI4m3IQSTWMDkd5HDwFXVY=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/genproto/googleapis/rpc/status",
+			"path": "google.golang.org/genproto/googleapis/rpc/status",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "9iVFsJYKQU71hfj0skKA+E4P4/I=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc",
+			"path": "google.golang.org/grpc",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "e96V30YlF8nnJw+2c14d8kUUDaE=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc/balancer",
+			"path": "google.golang.org/grpc/balancer",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "xohMthvqnNpNM1T1cmuyKUNqsjQ=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc/balancer/base",
+			"path": "google.golang.org/grpc/balancer/base",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "cE7mFcyGz0F+EnlTZrzLkhprH/4=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc/balancer/roundrobin",
+			"path": "google.golang.org/grpc/balancer/roundrobin",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "YyTUFAVju8wgb1s/3azC2CeSbfY=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc/binarylog/grpc_binarylog_v1",
+			"path": "google.golang.org/grpc/binarylog/grpc_binarylog_v1",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "e0xLHThZgMNcuR7aFuY+pzuQVVU=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc/codes",
+			"path": "google.golang.org/grpc/codes",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "UgxkVy6e/BMqXrmS21WmcHtdcd4=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc/connectivity",
+			"path": "google.golang.org/grpc/connectivity",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "UCUrC2IlbYFE2SCOmmjCpbp48JQ=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc/credentials",
+			"path": "google.golang.org/grpc/credentials",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "Eqxca59xIMaL4EUNwWsozg7kFkk=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc/credentials/internal",
+			"path": "google.golang.org/grpc/credentials/internal",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "puS+9H2qFMoLKCyXxu9nGACNuQk=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc/encoding",
+			"path": "google.golang.org/grpc/encoding",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "LKKkn7EYA+Do9Qwb2/SUKLFNxoo=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc/encoding/proto",
+			"path": "google.golang.org/grpc/encoding/proto",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "3hj3attJzO2iqArJeSNEW8diHqo=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc/grpclog",
+			"path": "google.golang.org/grpc/grpclog",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "ljdusD2Cq+jomfGQwL9TyEsRZEA=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc/internal",
+			"path": "google.golang.org/grpc/internal",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "uDJA7QK2iGnEwbd9TPqkLaM+xuU=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc/internal/backoff",
+			"path": "google.golang.org/grpc/internal/backoff",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "k4ITR7VpzDbbf0tRqI6p9xsmPug=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc/internal/balancerload",
+			"path": "google.golang.org/grpc/internal/balancerload",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "Wxgih1pu+wvJRT/rCY9WgSMF4w4=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc/internal/binarylog",
+			"path": "google.golang.org/grpc/internal/binarylog",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "YtqLJH9Ht2sD5EqAOSqbARDUeXw=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc/internal/channelz",
+			"path": "google.golang.org/grpc/internal/channelz",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "i4SV6WG1mpU7hw8mtvY5HuXKUCI=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc/internal/envconfig",
+			"path": "google.golang.org/grpc/internal/envconfig",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "70gndc/uHwyAl3D45zqp7vyHWlo=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc/internal/grpcrand",
+			"path": "google.golang.org/grpc/internal/grpcrand",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "psHSfNyU2y9L9zRK+s41e7ScTf4=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc/internal/grpcsync",
+			"path": "google.golang.org/grpc/internal/grpcsync",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "wTCshPVAgkVAk+4nvDj5Yj6AFp4=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc/internal/syscall",
+			"path": "google.golang.org/grpc/internal/syscall",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "E0W/CW91FjZFPxhQh7eGUolfl14=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc/internal/transport",
+			"path": "google.golang.org/grpc/internal/transport",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "cDYDzrrgfj9Y45GDWcXXCrRofp0=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc/keepalive",
+			"path": "google.golang.org/grpc/keepalive",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "0OoJw+Wc7+1Ox5nBbwjgqWW8Xpw=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc/metadata",
+			"path": "google.golang.org/grpc/metadata",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "pA4e5yAJjAqCzz1FrutkeNHV5W8=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc/naming",
+			"path": "google.golang.org/grpc/naming",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "ltPJN8UyzvWN0H0BvkP2AREujgQ=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc/peer",
+			"path": "google.golang.org/grpc/peer",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "6vHMrRHRgTkFCgP1Pp5yTENQoV0=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc/resolver",
+			"path": "google.golang.org/grpc/resolver",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "GDSzPulWXlL1fSZuT65qIBKhk4E=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc/resolver/dns",
+			"path": "google.golang.org/grpc/resolver/dns",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "voz1mta5+d5bXMGt9SK88Vys2iE=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc/resolver/passthrough",
+			"path": "google.golang.org/grpc/resolver/passthrough",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "3ZPGj/HdfLTiK7I3xPdnqELnHdk=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc/stats",
+			"path": "google.golang.org/grpc/stats",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "bJSa9mM309wvISy+B6zfc0KAUqs=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc/status",
+			"path": "google.golang.org/grpc/status",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "HGXDrPBB90iBU4NJ7C1N8MJRkI0=",
+			"origin": "hub000.xindong.com/SausageShoot/GameServer/vendor/google.golang.org/grpc/tap",
+			"path": "google.golang.org/grpc/tap",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "P/k5ZGf0lEBgpKgkwy++F7K1PSg=",
+			"path": "gopkg.in/go-playground/validator.v8",
+			"revision": "5f1438d3fca68893a817e4a66806cea46a9e4ebf",
+			"revisionTime": "2017-07-30T05:02:35Z"
+		},
+		{
+			"checksumSHA1": "QqDq2x8XOU7IoOR98Cx1eiV5QY8=",
+			"path": "gopkg.in/yaml.v2",
+			"revision": "51d6538a90f86fe93ac480b35f37b2be17fef232",
+			"revisionTime": "2018-11-15T11:05:04Z"
+		},
+		{
+			"checksumSHA1": "7ytqUifZoou64c2bEE5wTQVekjo=",
+			"path": "hub000.xindong.com/SausageShoot/GameServer/protocol/v1",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		},
+		{
+			"checksumSHA1": "Alyy968Cq6APQjMZ5yk6CgcABsY=",
+			"path": "hub000.xindong.com/SausageShoot/GameServer/utils/context/v1",
+			"revision": "75bbe12da4d9d5a145a440b5745832bf3a2b84e1",
+			"revisionTime": "2019-08-08T09:44:06Z"
+		}
+	],
+	"rootPath": "gitlab.com/SausageShoot/admin-server"
+}

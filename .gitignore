@@ -1,0 +1,9 @@
+.vscode
+.idea
+.dir-locals.el
+.DS_Store
+build/
+Gopkg.toml
+Gopkg.lock
+*.csv
+*.txt
