@@ -20,9 +20,9 @@ type gate struct {
 // Gate is the constructor
 func Gate(port int) *gate {
 	e := gin.New()
-	e.GET("/ping", func(c *gin.Context) {
-		c.String(200, "pong")
-	})
+	//e.GET("/ping", func(c *gin.Context) {
+	//	c.String(200, "pong")
+	//})
 	return &gate{
 		port:   port,
 		engine: e,
@@ -57,5 +57,5 @@ func (g *gate) Stop() {
 			logger.Logger.Fatal("Server Shutdown", logger.ErrorField(err))
 		}
 	}
-	logger.Logger.Info("Server Exiting")
+	logger.Logger.Info("Server Exit")
 }

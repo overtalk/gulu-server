@@ -5,7 +5,7 @@ import (
 	"os"
 	"os/signal"
 
-	"gitlab.com/SausageShoot/admin-server/services/gate/v1"
+	"gitlab.com/SausageShoot/admin-server/services/config/v1"
 	"gitlab.com/SausageShoot/admin-server/utils/logger"
 )
 
@@ -22,13 +22,13 @@ func main() {
 	// init logger
 	logger.InitLogger(logLevel)
 
-	g := gate.Gate(port)
+	internalService := config.Config().InternalService(port)
 
 	// start the server
-	g.Start()
+	internalService.Gate.Start()
 
 	quit := make(chan os.Signal)
 	signal.Notify(quit, os.Interrupt)
 	<-quit
-	g.Stop()
+	internalService.Gate.Stop()
 }
