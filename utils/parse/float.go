@@ -2,10 +2,9 @@ package parse
 
 import (
 	"encoding/json"
-	"errors"
 	"strconv"
 
-	"hub000.xindong.com/SausageShoot/GameServer/utils/logger/v2"
+	"gitlab.com/SausageShoot/admin-server/utils/logger"
 )
 
 func Float(in interface{}) float64 {
@@ -24,7 +23,7 @@ func Float(in interface{}) float64 {
 		var err error
 		ret, err = strconv.ParseFloat(inp, 64)
 		if err != nil {
-			logger.GetLogger().Errorf("parse to int error(string) : %v", err)
+			logger.Logger.Error("parse to int", logger.ErrorField(err), logger.Field("input", in))
 		}
 	case int:
 		ret = float64(in.(int))
@@ -43,7 +42,7 @@ func Float(in interface{}) float64 {
 	case nil:
 		return 0
 	default:
-		logger.GetLogger().Error(errors.New("parse to int error(unknown) : error type"))
+		logger.Logger.Error("parse to int", logger.Field("input", in))
 		return 0
 	}
 

@@ -1,9 +1,7 @@
 package parse
 
 import (
-	"errors"
-
-	"hub000.xindong.com/SausageShoot/GameServer/utils/logger/v2"
+	"gitlab.com/SausageShoot/admin-server/utils/logger"
 )
 
 func Bool(in interface{}) bool {
@@ -14,7 +12,7 @@ func Bool(in interface{}) bool {
 	case nil:
 		return false
 	default:
-		logger.GetLogger().Error(errors.New("parse to int error(unknown) : error type"))
+		logger.Logger.Error("parse to int", logger.Field("input", in))
 		return false
 	}
 
