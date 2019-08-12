@@ -20,9 +20,7 @@ type gate struct {
 // Gate is the constructor
 func Gate(port int) *gate {
 	e := gin.New()
-	//e.GET("/ping", func(c *gin.Context) {
-	//	c.String(200, "pong")
-	//})
+
 	return &gate{
 		port:   port,
 		engine: e,

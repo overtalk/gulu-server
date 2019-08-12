@@ -1,15 +1,20 @@
-package req
+package common
 
 import (
 	"encoding/json"
 )
 
-type PostResponse struct {
+type Response interface {
+	Encode() string
+}
+
+// post response from client
+type Post struct {
 	ErrCode int    `json:"errcode"`
 	Msg     string `json:"msg"`
 }
 
-func (p PostResponse) Encode() string {
+func (p Post) Encode() string {
 	d, err := json.Marshal(p)
 	if err != nil {
 		p.ErrCode = 1001

@@ -1,4 +1,4 @@
-package req
+package common
 
 import (
 	"encoding/json"
@@ -13,7 +13,7 @@ type BasicInfo struct {
 	Strength   int `json:"strength"`
 }
 
-func BasicInfoReq(data []byte) *BasicInfo {
+func TurnBasicInfo(data []byte) *BasicInfo {
 	p := &BasicInfo{}
 	if err := json.Unmarshal(data, &p); err != nil {
 		return &BasicInfo{}

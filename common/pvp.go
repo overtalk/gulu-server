@@ -1,4 +1,4 @@
-package req
+package common
 
 import (
 	"encoding/json"
@@ -11,7 +11,7 @@ type PvpInfo struct {
 	Cup   int `json:"cup"`
 }
 
-func PvpInfoReq(data []byte) *PvpInfo {
+func TurnPvpInfo(data []byte) *PvpInfo {
 	p := &PvpInfo{}
 	if err := json.Unmarshal(data, &p); err != nil {
 		return &PvpInfo{}

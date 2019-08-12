@@ -1,4 +1,4 @@
 package module
 
-type Player interface {
+type PlayerService interface {
 }
