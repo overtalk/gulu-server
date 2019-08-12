@@ -1,7 +1,6 @@
 package logger
 
 import (
-	"fmt"
 	"log"
 
 	"go.uber.org/zap"
@@ -59,6 +58,5 @@ func getLoggerLevel(lvString string) (zapcore.Level, error) {
 		return lvl, err
 	}
 
-	fmt.Errorf(fmt.Sprintln("error"))
 	return lvl, nil
 }
