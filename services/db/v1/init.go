@@ -7,6 +7,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 
 	"github.com/didi/gendry/manager"
+
 	"gitlab.com/SausageShoot/admin-server/utils/logger"
 )
 
