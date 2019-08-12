@@ -6,14 +6,14 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"gitlab.com/SausageShoot/admin-server/module"
+	"gitlab.com/SausageShoot/admin-server/req"
 )
 
 func (p *player) CommonOp(c *gin.Context) {
-	resp := module.PostResponse{}
+	resp := req.PostResponse{}
 
 	body, _ := ioutil.ReadAll(c.Request.Body)
-	req := module.CommonOpReq(body)
+	req := req.CommonOpReq(body)
 
 	fmt.Println("CommonOpReq = ", req)
 

@@ -6,14 +6,14 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"gitlab.com/SausageShoot/admin-server/module"
+	"gitlab.com/SausageShoot/admin-server/req"
 )
 
 func (p *player) SetBasicInfo(c *gin.Context) {
-	resp := module.PostResponse{}
+	resp := req.PostResponse{}
 
 	body, _ := ioutil.ReadAll(c.Request.Body)
-	req := module.BasicInfoReq(body)
+	req := req.BasicInfoReq(body)
 
 	fmt.Println("BasicInfoReq = ", req)
 
