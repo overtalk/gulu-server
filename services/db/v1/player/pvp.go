@@ -1,7 +1,7 @@
 package player
 
 import (
-	"hub000.xindong.com/SausageShoot/GameServer/utils/serializer"
+	"gitlab.com/SausageShoot/admin-server/utils/serializer"
 
 	"gitlab.com/SausageShoot/admin-server/protocol"
 	"gitlab.com/SausageShoot/admin-server/utils/parse"

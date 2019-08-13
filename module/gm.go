@@ -5,4 +5,6 @@ type GMSource interface {
 }
 
 type GM interface {
+	GetWeaponList() []int64
+	GetFashionList() []int64
 }

@@ -29,6 +29,7 @@ func (g *gm) loadWeaponList() {
 
 	g.weaponList.Store(weaponList)
 }
+
 func (g *gm) GetWeaponList() []int64 {
 	return g.weaponList.Load().([]int64)
 }

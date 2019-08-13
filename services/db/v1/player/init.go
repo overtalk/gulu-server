@@ -6,6 +6,7 @@ import (
 	"github.com/didi/gendry/builder"
 
 	"gitlab.com/SausageShoot/admin-server/model"
+	"gitlab.com/SausageShoot/admin-server/module"
 )
 
 var (
@@ -13,13 +14,15 @@ var (
 )
 
 type player struct {
+	gm     module.GM
 	db     *sql.DB
 	pModel model.Player
 	update map[string]interface{}
 }
 
-func Player(pl model.Player, db *sql.DB) *player {
+func Player(pl model.Player, db *sql.DB, gm module.GM) *player {
 	return &player{
+		gm:     gm,
 		db:     db,
 		pModel: pl,
 		update: make(map[string]interface{}),

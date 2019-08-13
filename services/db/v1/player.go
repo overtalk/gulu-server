@@ -31,6 +31,6 @@ func (p *pool) GetPlayerByID(id int) (module.Player, error) {
 		return nil, err
 	}
 
-	return player.Player(pl, db), nil
+	return player.Player(pl, db, p.gm), nil
 
 }

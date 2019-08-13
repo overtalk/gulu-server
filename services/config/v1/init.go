@@ -25,12 +25,12 @@ func Config() *config {
 }
 
 func (c *config) InternalService(port int) *module.InternalService {
-	gitlabGMSource := gitlab.Catcher(gitlab.Config{
+	gm := gm.GM(gitlab.Catcher(gitlab.Config{
 		Token: c.v.GetString(gmToken),
 		Ref:   c.v.GetString(gmBranch),
 		Pid:   c.v.GetInt(gmPid),
 		Url:   c.v.GetString(gmUrl),
-	})
+	}))
 	return &module.InternalService{
 		DB: db.Pool(mysql.Config{
 			Username: c.v.GetString(mySQLUsername),
@@ -38,8 +38,8 @@ func (c *config) InternalService(port int) *module.InternalService {
 			Host:     c.v.GetString(mySQLHost),
 			DBName:   c.v.GetString(mySQLDBName),
 			Port:     c.v.GetInt(mySQLPort),
-		}),
+		}, gm),
 		Gate: gate.Gate(port),
-		GM:   gm.GM(gitlabGMSource),
+		GM:   gm,
 	}
 }

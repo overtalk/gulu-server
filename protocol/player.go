@@ -18,5 +18,6 @@ type BasicInfo struct {
 
 // common operation
 type CommonOP struct {
+	ID int `json:"id"`
 	OP int `json:"op"`
 }
