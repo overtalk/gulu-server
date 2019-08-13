@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"strconv"
 
-	"gitlab.com/SausageShoot/admin-server/utils/logger"
+	"gitlab.com/SausageShoot/admin-server/utils/log"
 )
 
 func Int(in interface{}) int64 {
@@ -22,7 +22,7 @@ func Int(in interface{}) int64 {
 		var err error
 		ret, err = strconv.ParseInt(inp, 10, 64)
 		if err != nil {
-			logger.Logger.Error("parse to int", logger.ErrorField(err), logger.Field("input", in))
+			log.Logger.Error("parse to int", log.ErrorField(err), log.Field("input", in))
 
 		}
 	case int:
@@ -42,7 +42,7 @@ func Int(in interface{}) int64 {
 	case nil:
 		return 0
 	default:
-		logger.Logger.Error("parse to int", logger.Field("input", in))
+		log.Logger.Error("parse to int", log.Field("input", in))
 		return 0
 	}
 

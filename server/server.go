@@ -7,7 +7,7 @@ import (
 
 	"gitlab.com/SausageShoot/admin-server/services/config/v1"
 	"gitlab.com/SausageShoot/admin-server/services/player/v1"
-	"gitlab.com/SausageShoot/admin-server/utils/logger"
+	"gitlab.com/SausageShoot/admin-server/utils/log"
 )
 
 var (
@@ -21,7 +21,7 @@ func main() {
 	flag.Parse()
 
 	// init logger
-	logger.InitLogger(logLevel)
+	log.InitLogger(logLevel)
 
 	internalService := config.Config().InternalService(port)
 	player.Player(internalService)

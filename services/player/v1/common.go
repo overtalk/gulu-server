@@ -5,7 +5,7 @@ import (
 
 	"gitlab.com/SausageShoot/admin-server/errtable"
 	"gitlab.com/SausageShoot/admin-server/protocol"
-	"gitlab.com/SausageShoot/admin-server/utils/logger"
+	"gitlab.com/SausageShoot/admin-server/utils/log"
 )
 
 func (p *player) CommonOP(requestMessage interface{}) protocol.Response {
@@ -13,7 +13,7 @@ func (p *player) CommonOP(requestMessage interface{}) protocol.Response {
 	resp := protocol.PostResponse{ErrCode: 1000, Msg: "ok"}
 
 	if !ok {
-		logger.Logger.Error("Convert", logger.Field("request", requestMessage))
+		log.Logger.Error("Convert", log.Field("request", requestMessage))
 		return errtable.ConvertRequestErr
 	}
 	fmt.Println("CommonOP Request = ", req)
