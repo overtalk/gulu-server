@@ -5,7 +5,6 @@ import (
 )
 
 var (
-	ResponseEncodeErr = `{"errcode":1003,"msg":"encode response error"}`
 
 	// ReadBodyErr defines get http body data from gin context error
 	ReadBodyErr = protocol.PostResponse{

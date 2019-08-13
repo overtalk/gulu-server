@@ -3,9 +3,10 @@ package protocol
 import (
 	"encoding/json"
 
-	"gitlab.com/SausageShoot/admin-server/errtable"
 	"gitlab.com/SausageShoot/admin-server/utils/logger"
 )
+
+const responseEncodeErr = `{"errcode":1003,"msg":"encode response error"}`
 
 type Response interface {
 	Encode() string
@@ -20,10 +21,10 @@ type PostResponse struct {
 func (p PostResponse) Encode() string {
 	d, err := json.Marshal(p)
 	if err != nil {
-		logger.Logger.Error("PostResponse Encode",
+		logger.Logger.Error("PsostResponse Encode",
 			logger.ErrorField(err),
 			logger.Field("resp", p))
-		return errtable.ResponseEncodeErr
+		return responseEncodeErr
 	}
 	return string(d)
 }
