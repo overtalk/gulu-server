@@ -1,16 +1,15 @@
 package module
 
 import (
-	"github.com/gin-gonic/gin"
+	"reflect"
 
-	"gitlab.com/SausageShoot/admin-server/common"
+	"gitlab.com/SausageShoot/admin-server/protocol"
 )
 
-type Handler func(req interface{}) common.Response
+type Handler func(requestMessage interface{}) protocol.Response
 
 type Gate interface {
 	Start()
 	Stop()
-	Add(httpMethod, relativePath string, handlers ...gin.HandlerFunc)
-	Add1(httpMethod, relativePath string, handler Handler)
+	AddHandler(httpMethod, relativePath string, ty reflect.Type, handler Handler)
 }

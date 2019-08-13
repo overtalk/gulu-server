@@ -1,11 +1,10 @@
 package player
 
 import (
-	"fmt"
-
-	"github.com/gin-gonic/gin"
+	"reflect"
 
 	"gitlab.com/SausageShoot/admin-server/module"
+	"gitlab.com/SausageShoot/admin-server/protocol"
 )
 
 type player struct {
@@ -13,13 +12,8 @@ type player struct {
 }
 
 func Player(i *module.InternalService) {
-	p := player{
-		db: i.DB,
-	}
-
-	i.Gate.Add("POST", "/v1/user/pvp", p.SetPvpInfo, func(c *gin.Context) {
-		fmt.Println("SetPvpInfo 后面的函数啊")
-	})
-	i.Gate.Add("POST", "/v1/user/info", p.SetBasicInfo)
-	i.Gate.Add("POST", "/v1/user/common", p.CommonOp)
+	p := player{db: i.DB}
+	i.Gate.AddHandler("POST", "/v1/user/pvp", reflect.TypeOf(new(protocol.PvpInfo)).Elem(), p.SetPvpInfo)
+	i.Gate.AddHandler("POST", "/v1/user/info", reflect.TypeOf(new(protocol.BasicInfo)).Elem(), p.SetBasicInfo)
+	i.Gate.AddHandler("POST", "/v1/user/common", reflect.TypeOf(new(protocol.CommonOP)).Elem(), p.CommonOP)
 }

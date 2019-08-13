@@ -1,8 +1,11 @@
-package common
+package protocol
 
-import (
-	"encoding/json"
-)
+// PvpInfo
+type PvpInfo struct {
+	ID    int `json:"id"`
+	Arena int `json:"arena"`
+	Cup   int `json:"cup"`
+}
 
 // basic info
 type BasicInfo struct {
@@ -13,10 +16,7 @@ type BasicInfo struct {
 	Strength   int `json:"strength"`
 }
 
-func TurnBasicInfo(data []byte) *BasicInfo {
-	p := &BasicInfo{}
-	if err := json.Unmarshal(data, &p); err != nil {
-		return &BasicInfo{}
-	}
-	return p
+// common operation
+type CommonOP struct {
+	OP int `json:"op"`
 }

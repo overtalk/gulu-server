@@ -1,7 +1,7 @@
 package module
 
 import (
-	"gitlab.com/SausageShoot/admin-server/common"
+	"gitlab.com/SausageShoot/admin-server/protocol"
 )
 
 type DB interface {
@@ -10,5 +10,5 @@ type DB interface {
 
 type Player interface {
 	Apply() error
-	SetPvpInfo(info *common.PvpInfo) Player
+	SetPvpInfo(info *protocol.PvpInfo) Player
 }

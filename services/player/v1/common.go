@@ -2,25 +2,21 @@ package player
 
 import (
 	"fmt"
-	"io/ioutil"
 
-	"github.com/gin-gonic/gin"
-
-	"gitlab.com/SausageShoot/admin-server/common"
+	"gitlab.com/SausageShoot/admin-server/errtable"
+	"gitlab.com/SausageShoot/admin-server/protocol"
+	"gitlab.com/SausageShoot/admin-server/utils/logger"
 )
 
-func (p *player) CommonOp(c *gin.Context) {
-	resp := common.Post{}
+func (p *player) CommonOP(requestMessage interface{}) protocol.Response {
+	req, ok := requestMessage.(*protocol.CommonOP)
+	resp := protocol.PostResponse{ErrCode: 1000, Msg: "ok"}
 
-	body, _ := ioutil.ReadAll(c.Request.Body)
-	req := common.TurnCommonOp(body)
+	if !ok {
+		logger.Logger.Error("Convert", logger.Field("request", requestMessage))
+		return errtable.ConvertRequestErr
+	}
+	fmt.Println("CommonOP Request = ", req)
 
-	fmt.Println("CommonOpReq = ", req)
-
-	// todo: db operation
-
-	resp.ErrCode = 1000
-	resp.Msg = "ok"
-
-	c.String(200, resp.Encode())
+	return resp
 }
