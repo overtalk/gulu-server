@@ -11,6 +11,7 @@ import (
 	"gitlab.com/SausageShoot/admin-server/module"
 	"gitlab.com/SausageShoot/admin-server/protocol"
 	"gitlab.com/SausageShoot/admin-server/utils/log"
+	. "gitlab.com/SausageShoot/admin-server/utils/trace"
 )
 
 var (
@@ -26,21 +27,23 @@ func (g *gate) AddHandler(httpMethod, relativePath string, ty reflect.Type, hand
 	switch httpMethod {
 	case "GET":
 		g.engine.GET(relativePath, func(context *gin.Context) {
+			context.Set(TraceKey, GenTraceID(Param{PlayerID: "playerID", Url: relativePath}))
 			body, err := ioutil.ReadAll(context.Request.Body)
 			if err != nil {
 				log.Logger.Fatal("Read GET Request Body", log.ErrorField(err))
 				context.String(200, errtable.ReadBodyErr.Encode())
 			}
-			context.String(200, handler(protocol.GetRequest(ty, body)).Encode())
+			context.String(200, handler(context, protocol.GetRequest(ty, body)).Encode())
 		})
 	case "POST":
 		g.engine.POST(relativePath, func(context *gin.Context) {
+			context.Set(TraceKey, GenTraceID(Param{PlayerID: "playerID", Url: relativePath}))
 			body, err := ioutil.ReadAll(context.Request.Body)
 			if err != nil {
 				log.Logger.Fatal("Read POST Request Body", log.ErrorField(err))
 				context.String(200, errtable.ReadBodyErr.Encode())
 			}
-			context.String(200, handler(protocol.GetRequest(ty, body)).Encode())
+			context.String(200, handler(context, protocol.GetRequest(ty, body)).Encode())
 		})
 	default:
 		log.Logger.Fatal("add gin route",

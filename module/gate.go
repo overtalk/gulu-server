@@ -1,12 +1,13 @@
 package module
 
 import (
+	"context"
 	"reflect"
 
 	"gitlab.com/SausageShoot/admin-server/protocol"
 )
 
-type Handler func(requestMessage interface{}) protocol.Response
+type Handler func(ctx context.Context, requestMessage interface{}) protocol.Response
 
 type Gate interface {
 	Start()
