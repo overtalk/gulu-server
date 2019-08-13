@@ -6,6 +6,7 @@ import (
 
 type DB interface {
 	GetPlayerByID(id int) (Player, error)
+	QueryPlayer(query *protocol.PlayerQuery) error
 }
 
 type Player interface {

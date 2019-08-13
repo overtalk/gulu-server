@@ -16,6 +16,7 @@ type Response interface {
 type PostResponse struct {
 	ErrCode int    `json:"errcode"`
 	Msg     string `json:"msg"`
+	ID      int    `json:"id"`
 }
 
 func (p PostResponse) Encode() string {

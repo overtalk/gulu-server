@@ -1,5 +1,10 @@
 package protocol
 
+type PlayerQuery struct {
+	ID       int    `json:"id"`
+	Nickname string `json:"nickname"`
+}
+
 // PvpInfo
 type PvpInfo struct {
 	ID    int `json:"id"`
