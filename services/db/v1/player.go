@@ -6,6 +6,7 @@ import (
 
 	"gitlab.com/SausageShoot/admin-server/model"
 	"gitlab.com/SausageShoot/admin-server/module"
+	"gitlab.com/SausageShoot/admin-server/protocol"
 	"gitlab.com/SausageShoot/admin-server/services/db/v1/player"
 )
 
@@ -33,4 +34,9 @@ func (p *pool) GetPlayerByID(id int) (module.Player, error) {
 
 	return player.Player(pl, db, p.gm), nil
 
+}
+
+func (p *pool) QueryPlayer(query *protocol.PlayerQuery) error {
+	_, err := p.getDBByPlayerID(query.ID)
+	return err
 }
