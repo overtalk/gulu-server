@@ -10,5 +10,6 @@ type DB interface {
 
 type Player interface {
 	Apply() error
-	SetPvpInfo(info *protocol.PvpInfo) Player
+	SetPvpInfo(info *protocol.PvpInfo) error
+	SetBasicInfo(info *protocol.BasicInfo)
 }

@@ -6,6 +6,8 @@ import (
 	"gitlab.com/SausageShoot/admin-server/module"
 	"gitlab.com/SausageShoot/admin-server/services/db/v1"
 	"gitlab.com/SausageShoot/admin-server/services/gate/v1"
+	"gitlab.com/SausageShoot/admin-server/services/gm/v1"
+	"gitlab.com/SausageShoot/admin-server/utils/gitlab"
 	"gitlab.com/SausageShoot/admin-server/utils/mysql"
 )
 
@@ -23,6 +25,12 @@ func Config() *config {
 }
 
 func (c *config) InternalService(port int) *module.InternalService {
+	gitlabGMSource := gitlab.Catcher(gitlab.Config{
+		Token: c.v.GetString(gmToken),
+		Ref:   c.v.GetString(gmBranch),
+		Pid:   c.v.GetInt(gmPid),
+		Url:   c.v.GetString(gmUrl),
+	})
 	return &module.InternalService{
 		DB: db.Pool(mysql.Config{
 			Username: c.v.GetString(mySQLUsername),
@@ -32,5 +40,6 @@ func (c *config) InternalService(port int) *module.InternalService {
 			Port:     c.v.GetInt(mySQLPort),
 		}),
 		Gate: gate.Gate(port),
+		GM:   gm.GM(gitlabGMSource),
 	}
 }

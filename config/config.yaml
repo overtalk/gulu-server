@@ -4,3 +4,8 @@ mysql:
   password: sausage_shooter
   db: sausage_shooter
   port: 3306
+gm:
+  token: uApHngkjnJCsZLXwvx1j
+  pid: 110
+  branch: master
+  url: https://git.xindong.com/api/v4

@@ -4,9 +4,8 @@ import (
 	"database/sql"
 	"time"
 
-	_ "github.com/go-sql-driver/mysql"
-
 	"github.com/didi/gendry/manager"
+	_ "github.com/go-sql-driver/mysql"
 
 	"gitlab.com/SausageShoot/admin-server/utils/log"
 )

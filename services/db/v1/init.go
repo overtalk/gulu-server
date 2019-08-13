@@ -1,8 +1,6 @@
 package db
 
 import (
-	_ "github.com/go-sql-driver/mysql"
-
 	"gitlab.com/SausageShoot/admin-server/module"
 	"gitlab.com/SausageShoot/admin-server/services/openid/v1"
 	"gitlab.com/SausageShoot/admin-server/utils/mysql"
