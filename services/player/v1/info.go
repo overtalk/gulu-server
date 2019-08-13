@@ -1,12 +1,14 @@
 package player
 
 import (
+	"context"
+
 	"gitlab.com/SausageShoot/admin-server/errtable"
 	"gitlab.com/SausageShoot/admin-server/protocol"
 	"gitlab.com/SausageShoot/admin-server/utils/log"
 )
 
-func (p *player) SetBasicInfo(requestMessage interface{}) protocol.Response {
+func (p *player) SetBasicInfo(ctx context.Context, requestMessage interface{}) protocol.Response {
 	req, ok := requestMessage.(*protocol.BasicInfo)
 	resp := protocol.PostResponse{ErrCode: 1000, Msg: "ok"}
 
