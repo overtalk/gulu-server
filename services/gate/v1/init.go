@@ -8,7 +8,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"gitlab.com/SausageShoot/admin-server/utils/logger"
+	"gitlab.com/SausageShoot/admin-server/utils/log"
 )
 
 type gate struct {
@@ -35,9 +35,9 @@ func (g *gate) Start() {
 			Handler: g.engine,
 		}
 
-		logger.Logger.Info("Server Start", logger.Field("port", g.port))
+		log.Logger.Info("Server Start", log.Field("port", g.port))
 		if err := g.srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
-			logger.Logger.Fatal("Server Start", logger.ErrorField(err))
+			log.Logger.Fatal("Server Start", log.ErrorField(err))
 		}
 	}(g)
 }
@@ -52,8 +52,8 @@ func (g *gate) Stop() {
 		defer cancel()
 
 		if err := g.srv.Shutdown(ctx); err != nil {
-			logger.Logger.Fatal("Server Shutdown", logger.ErrorField(err))
+			log.Logger.Fatal("Server Shutdown", log.ErrorField(err))
 		}
 	}
-	logger.Logger.Info("Server Exit")
+	log.Logger.Info("Server Exit")
 }

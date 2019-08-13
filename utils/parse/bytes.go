@@ -1,7 +1,7 @@
 package parse
 
 import (
-	"gitlab.com/SausageShoot/admin-server/utils/logger"
+	"gitlab.com/SausageShoot/admin-server/utils/log"
 )
 
 func Bytes(in interface{}) []byte {
@@ -14,7 +14,7 @@ func Bytes(in interface{}) []byte {
 	case nil:
 		return nil
 	default:
-		logger.Logger.Error("parse to string", logger.Field("input", in))
+		log.Logger.Error("parse to string", log.Field("input", in))
 		return nil
 	}
 

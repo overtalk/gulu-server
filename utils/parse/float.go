@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"strconv"
 
-	"gitlab.com/SausageShoot/admin-server/utils/logger"
+	"gitlab.com/SausageShoot/admin-server/utils/log"
 )
 
 func Float(in interface{}) float64 {
@@ -23,7 +23,7 @@ func Float(in interface{}) float64 {
 		var err error
 		ret, err = strconv.ParseFloat(inp, 64)
 		if err != nil {
-			logger.Logger.Error("parse to int", logger.ErrorField(err), logger.Field("input", in))
+			log.Logger.Error("parse to int", log.ErrorField(err), log.Field("input", in))
 		}
 	case int:
 		ret = float64(in.(int))
@@ -42,7 +42,7 @@ func Float(in interface{}) float64 {
 	case nil:
 		return 0
 	default:
-		logger.Logger.Error("parse to int", logger.Field("input", in))
+		log.Logger.Error("parse to int", log.Field("input", in))
 		return 0
 	}
 

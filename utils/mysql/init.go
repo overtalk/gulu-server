@@ -8,7 +8,7 @@ import (
 
 	"github.com/didi/gendry/manager"
 
-	"gitlab.com/SausageShoot/admin-server/utils/logger"
+	"gitlab.com/SausageShoot/admin-server/utils/log"
 )
 
 // Pool is the constructor
@@ -21,10 +21,10 @@ func Connect(c Config) *sql.DB {
 		manager.SetReadTimeout(1*time.Second),
 	).Port(c.Port).Open(true)
 	if err != nil {
-		logger.Logger.Fatal(
+		log.Logger.Fatal(
 			"Create MySQL Connection",
-			logger.ErrorField(err),
-			logger.Field("mySQL config", c))
+			log.ErrorField(err),
+			log.Field("mySQL config", c))
 	}
 	return conn
 }

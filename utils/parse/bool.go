@@ -1,7 +1,7 @@
 package parse
 
 import (
-	"gitlab.com/SausageShoot/admin-server/utils/logger"
+	"gitlab.com/SausageShoot/admin-server/utils/log"
 )
 
 func Bool(in interface{}) bool {
@@ -12,7 +12,7 @@ func Bool(in interface{}) bool {
 	case nil:
 		return false
 	default:
-		logger.Logger.Error("parse to int", logger.Field("input", in))
+		log.Logger.Error("parse to int", log.Field("input", in))
 		return false
 	}
 

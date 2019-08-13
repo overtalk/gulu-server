@@ -3,7 +3,7 @@ package parse
 import (
 	"strconv"
 
-	"gitlab.com/SausageShoot/admin-server/utils/logger"
+	"gitlab.com/SausageShoot/admin-server/utils/log"
 )
 
 func String(in interface{}) string {
@@ -22,7 +22,7 @@ func String(in interface{}) string {
 	case nil:
 		return ""
 	default:
-		logger.Logger.Error("parse to string", logger.Field("input", in))
+		log.Logger.Error("parse to string", log.Field("input", in))
 		return ""
 	}
 
