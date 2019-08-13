@@ -241,6 +241,12 @@
 			"revisionTime": "2019-06-10T21:01:06Z"
 		},
 		{
+			"checksumSHA1": "RQEgrV0sOZVgv+vxKlOPbJGnQuE=",
+			"path": "github.com/xanzy/go-gitlab",
+			"revision": "3fb3d1729bb756dd641cb6fd383f464497ee2926",
+			"revisionTime": "2019-08-02T07:11:19Z"
+		},
+		{
 			"checksumSHA1": "byl77NJm2QiR5tfeBzAf2QpeQUc=",
 			"path": "go.uber.org/atomic",
 			"revision": "8dc6146f7569370a472715e178d8ae31172ee6da",
