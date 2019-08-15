@@ -5,6 +5,7 @@ import (
 	"os"
 	"os/signal"
 
+	"gitlab.com/SausageShoot/admin-server/services/auth/v1"
 	"gitlab.com/SausageShoot/admin-server/services/config/v1"
 	"gitlab.com/SausageShoot/admin-server/services/player/v1"
 	"gitlab.com/SausageShoot/admin-server/utils/log"
@@ -24,6 +25,7 @@ func main() {
 	log.InitLogger(logLevel)
 
 	internalService := config.Config().InternalService(port)
+	auth.Player(internalService)
 	player.Player(internalService)
 
 	// start the server
