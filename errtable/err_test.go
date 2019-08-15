@@ -3,8 +3,6 @@ package errtable_test
 import (
 	"testing"
 
-	"gitlab.com/SausageShoot/admin-server/err"
-
 	"gitlab.com/SausageShoot/admin-server/errtable"
 )
 
