@@ -10,11 +10,14 @@ import (
 
 func (p *player) CommonOP(ctx context.Context, requestMessage interface{}) protocol.Response {
 	req, ok := requestMessage.(*protocol.CommonOP)
-	resp := protocol.PostResponse{ErrCode: 1000, Msg: "ok"}
+	resp := protocol.PostResponse{ErrCode: errtable.OkCode}
 
 	if !ok {
 		log.Logger.Error("Convert", log.Field("request", requestMessage))
-		return errtable.ConvertRequestErr
+		return protocol.PostResponse{
+			ErrCode: commonErrCode1,
+			Msg:     "convert CommonOP request error",
+		}
 	}
 
 	player, err := p.db.GetPlayerByID(req.ID)
@@ -22,7 +25,10 @@ func (p *player) CommonOP(ctx context.Context, requestMessage interface{}) proto
 		log.Logger.Error("get player",
 			log.ErrorField(err),
 			log.Field("id", req.ID))
-		return errtable.GetPlayerErr
+		return protocol.PostResponse{
+			ErrCode: commonErrCode2,
+			Msg:     "get player error",
+		}
 	}
 
 	if err := player.CommonOP(req); err != nil {
@@ -31,7 +37,7 @@ func (p *player) CommonOP(ctx context.Context, requestMessage interface{}) proto
 			log.Field("todo", req),
 			log.Field("id", req.ID))
 		return protocol.PostResponse{
-			ErrCode: 1001,
+			ErrCode: commonErrCode3,
 			Msg:     "DAO ERROR(set pvp info)",
 		}
 	}
@@ -41,7 +47,7 @@ func (p *player) CommonOP(ctx context.Context, requestMessage interface{}) proto
 			log.ErrorField(err),
 			log.Field("id", req.ID))
 		return protocol.PostResponse{
-			ErrCode: 1001,
+			ErrCode: commonErrCode4,
 			Msg:     "DAO ERROR(apply player after set basic info)",
 		}
 	}

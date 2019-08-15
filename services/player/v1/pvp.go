@@ -10,11 +10,14 @@ import (
 
 func (p *player) SetPvpInfo(ctx context.Context, requestMessage interface{}) protocol.Response {
 	req, ok := requestMessage.(*protocol.PvpInfo)
-	resp := protocol.PostResponse{ErrCode: 1000, Msg: "ok"}
+	resp := protocol.PostResponse{ErrCode: errtable.OkCode}
 
 	if !ok {
 		log.Logger.Error("Convert", log.Field("request", requestMessage))
-		return errtable.ConvertRequestErr
+		return protocol.PostResponse{
+			ErrCode: pvpErrCode1,
+			Msg:     "convert pvp request error",
+		}
 	}
 
 	player, err := p.db.GetPlayerByID(req.ID)
@@ -22,7 +25,10 @@ func (p *player) SetPvpInfo(ctx context.Context, requestMessage interface{}) pro
 		log.Logger.Error("get player",
 			log.ErrorField(err),
 			log.Field("id", req.ID))
-		return errtable.GetPlayerErr
+		return protocol.PostResponse{
+			ErrCode: pvpErrCode2,
+			Msg:     "get player error",
+		}
 	}
 
 	if err := player.SetPvpInfo(req); err != nil {
@@ -31,7 +37,7 @@ func (p *player) SetPvpInfo(ctx context.Context, requestMessage interface{}) pro
 			log.Field("todo", req),
 			log.Field("id", req.ID))
 		return protocol.PostResponse{
-			ErrCode: 1001,
+			ErrCode: pvpErrCode3,
 			Msg:     "DAO ERROR(set pvp info)",
 		}
 	}
@@ -41,7 +47,7 @@ func (p *player) SetPvpInfo(ctx context.Context, requestMessage interface{}) pro
 			log.ErrorField(err),
 			log.Field("id", req.ID))
 		return protocol.PostResponse{
-			ErrCode: 1001,
+			ErrCode: pvpErrCode4,
 			Msg:     "DAO ERROR(apply player after set pvp info)",
 		}
 	}

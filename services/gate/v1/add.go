@@ -7,7 +7,6 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"gitlab.com/SausageShoot/admin-server/errtable"
 	"gitlab.com/SausageShoot/admin-server/module"
 	"gitlab.com/SausageShoot/admin-server/protocol"
 	"gitlab.com/SausageShoot/admin-server/utils/log"
@@ -30,8 +29,12 @@ func (g *gate) AddHandler(httpMethod, relativePath string, ty reflect.Type, hand
 			context.Set(TraceKey, GenTraceID(Param{PlayerID: "playerID", Url: relativePath}))
 			body, err := ioutil.ReadAll(context.Request.Body)
 			if err != nil {
-				log.Logger.Fatal("Read GET Request Body", log.ErrorField(err))
-				context.String(200, errtable.ReadBodyErr.Encode())
+				log.Logger.Error("Read GET Request Body", log.ErrorField(err))
+				context.String(200, protocol.PostResponse{
+					ErrCode: errCode1,
+					Msg:     "read get request body error",
+				}.Encode())
+				return
 			}
 			context.String(200, handler(context, protocol.GetRequest(ty, body)).Encode())
 		})
@@ -41,7 +44,10 @@ func (g *gate) AddHandler(httpMethod, relativePath string, ty reflect.Type, hand
 			body, err := ioutil.ReadAll(context.Request.Body)
 			if err != nil {
 				log.Logger.Fatal("Read POST Request Body", log.ErrorField(err))
-				context.String(200, errtable.ReadBodyErr.Encode())
+				context.String(200, protocol.PostResponse{
+					ErrCode: errCode2,
+					Msg:     "read post request body error",
+				}.Encode())
 			}
 			context.String(200, handler(context, protocol.GetRequest(ty, body)).Encode())
 		})
