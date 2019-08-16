@@ -1,4 +1,4 @@
-package openid
+package gameopenid
 
 import (
 	"database/sql"

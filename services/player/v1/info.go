@@ -10,11 +10,14 @@ import (
 
 func (p *player) SetBasicInfo(ctx context.Context, requestMessage interface{}) protocol.Response {
 	req, ok := requestMessage.(*protocol.BasicInfo)
-	resp := protocol.PostResponse{ErrCode: 1000, Msg: "ok"}
+	resp := protocol.PostResponse{ErrCode: errtable.OkCode}
 
 	if !ok {
 		log.Logger.Error("Convert", log.Field("request", requestMessage))
-		return errtable.ConvertRequestErr
+		return protocol.PostResponse{
+			ErrCode: infoErrCode1,
+			Msg:     "convert basicInfo request error",
+		}
 	}
 
 	player, err := p.db.GetPlayerByID(req.ID)
@@ -22,7 +25,10 @@ func (p *player) SetBasicInfo(ctx context.Context, requestMessage interface{}) p
 		log.Logger.Error("get player",
 			log.ErrorField(err),
 			log.Field("id", req.ID))
-		return errtable.GetPlayerErr
+		return protocol.PostResponse{
+			ErrCode: infoErrCode2,
+			Msg:     "get player error",
+		}
 	}
 
 	player.SetBasicInfo(req)
@@ -32,7 +38,7 @@ func (p *player) SetBasicInfo(ctx context.Context, requestMessage interface{}) p
 			log.ErrorField(err),
 			log.Field("id", req.ID))
 		return protocol.PostResponse{
-			ErrCode: 1001,
+			ErrCode: infoErrCode3,
 			Msg:     "DAO ERROR(apply player after set basic info)",
 		}
 	}

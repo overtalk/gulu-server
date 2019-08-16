@@ -9,3 +9,8 @@ gm:
   pid: 110
   branch: master
   url: https://git.xindong.com/api/v4
+user:
+  token: uApHngkjnJCsZLXwvx1j
+  pid: 107
+  branch: master
+  url: https://git.xindong.com/api/v4

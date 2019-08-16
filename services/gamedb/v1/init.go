@@ -1,8 +1,8 @@
-package db
+package gamedb
 
 import (
 	"gitlab.com/SausageShoot/admin-server/module"
-	"gitlab.com/SausageShoot/admin-server/services/openid/v1"
+	"gitlab.com/SausageShoot/admin-server/services/gameopenid/v1"
 	"gitlab.com/SausageShoot/admin-server/utils/mysql"
 )
 
@@ -11,14 +11,14 @@ var (
 )
 
 type pool struct {
-	openidDB module.OpenIdDB
-	gm       module.GM
+	openidDB module.GameOpenIdDB
+	gm       module.GameGM
 }
 
 // Pool is the constructor
-func Pool(c mysql.Config, gm module.GM) *pool {
+func Pool(c mysql.Config, gm module.GameGM) *pool {
 	return &pool{
-		openidDB: openid.NewOpenIdDB(c),
+		openidDB: gameopenid.NewOpenIdDB(c),
 		gm:       gm,
 	}
 }

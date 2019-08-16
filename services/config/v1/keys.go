@@ -13,4 +13,10 @@ const (
 	gmPid    = "gm.pid"
 	gmBranch = "gm.branch"
 	gmUrl    = "gm.url"
+
+	// user table source
+	userToken  = "user.token"
+	userPid    = "user.pid"
+	userBranch = "user.branch"
+	userUrl    = "user.url"
 )

@@ -1,4 +1,4 @@
-package db
+package gamedb
 
 import (
 	"github.com/didi/gendry/builder"
@@ -7,11 +7,11 @@ import (
 	"gitlab.com/SausageShoot/admin-server/model"
 	"gitlab.com/SausageShoot/admin-server/module"
 	"gitlab.com/SausageShoot/admin-server/protocol"
-	"gitlab.com/SausageShoot/admin-server/services/db/v1/player"
+	"gitlab.com/SausageShoot/admin-server/services/gamedb/v1/player"
 )
 
-// get sql.DB
-func (p *pool) GetPlayerByID(id int) (module.Player, error) {
+// get sql.GameDB
+func (p *pool) GetPlayerByID(id int) (module.GamePlayer, error) {
 	db, err := p.getDBByPlayerID(id)
 	if err != nil {
 		return nil, err

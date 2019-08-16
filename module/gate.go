@@ -7,10 +7,13 @@ import (
 	"gitlab.com/SausageShoot/admin-server/protocol"
 )
 
-type Handler func(ctx context.Context, requestMessage interface{}) protocol.Response
+type POSTHandler func(ctx context.Context, requestMessage interface{}) protocol.Response
+type GETHandler func(ctx context.Context) protocol.Response
 
 type Gate interface {
 	Start()
 	Stop()
-	AddHandler(httpMethod, relativePath string, ty reflect.Type, handler Handler)
+	AddStatic(urlPrefix, root string, indexes bool)
+	POST(relativePath string, ty reflect.Type, handler POSTHandler)
+	GET(relativePath string, handler GETHandler)
 }

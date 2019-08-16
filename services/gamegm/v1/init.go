@@ -1,4 +1,4 @@
-package gm
+package gamegm
 
 import (
 	"sync/atomic"

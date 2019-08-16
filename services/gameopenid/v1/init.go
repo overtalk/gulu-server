@@ -1,4 +1,4 @@
-package openid
+package gameopenid
 
 import (
 	"database/sql"
@@ -21,14 +21,14 @@ func init() {
 	scanner.SetTagName("json")
 }
 
-// OpenIdDB describes which node the openid binds to
+// GameOpenIdDB describes which node the openid binds to
 type OpenIdDB struct {
 	db        *sql.DB
 	nodeConns map[int]*sql.DB
 	address   string
 }
 
-func NewOpenIdDB(c mysql.Config) module.OpenIdDB {
+func NewOpenIdDB(c mysql.Config) module.GameOpenIdDB {
 	db := mysql.Connect(c)
 
 	openIdConn := &OpenIdDB{
