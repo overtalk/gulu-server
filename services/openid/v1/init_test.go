@@ -8,7 +8,7 @@ import (
 	"gitlab.com/SausageShoot/admin-server/utils/mysql"
 )
 
-func getConn(t *testing.T) module.OpenIdDB {
+func getConn(t *testing.T) module.GameOpenIdDB {
 	c := mysql.Config{
 		Username: "sausage",
 		Password: "sausage_shooter",

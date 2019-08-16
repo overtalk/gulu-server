@@ -14,13 +14,13 @@ var (
 )
 
 type player struct {
-	gm     module.GM
+	gm     module.GameGM
 	db     *sql.DB
 	pModel model.Player
 	update map[string]interface{}
 }
 
-func Player(pl model.Player, db *sql.DB, gm module.GM) *player {
+func Player(pl model.Player, db *sql.DB, gm module.GameGM) *player {
 	return &player{
 		gm:     gm,
 		db:     db,

@@ -8,7 +8,7 @@ import (
 )
 
 type player struct {
-	db module.DB
+	db module.GameDB
 }
 
 func Player(i *module.InternalService) {

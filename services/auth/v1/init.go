@@ -8,7 +8,7 @@ import (
 )
 
 type auth struct {
-	db module.DB
+	db module.GameDB
 }
 
 func Player(i *module.InternalService) {

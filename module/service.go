@@ -1,8 +1,7 @@
 package module
 
 type InternalService struct {
-	DB   DB
+	DB   GameDB
 	Gate Gate
-	GM   GM
-	User GM
+	GM   GameGM
 }

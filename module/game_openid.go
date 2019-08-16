@@ -4,7 +4,7 @@ import (
 	"database/sql"
 )
 
-type OpenIdDB interface {
+type GameOpenIdDB interface {
 	GetAllPlayerInfo() (map[string]*PlayerInfo, error)
 	GetPlayerInfoByOpenId(openID string) (*PlayerInfo, error)
 	GetPlayerInfoByPlayerID(PlayerID int) (*PlayerInfo, error)
