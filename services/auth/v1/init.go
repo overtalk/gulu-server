@@ -14,11 +14,10 @@ type user struct {
 	Account  string `json:"account"`
 	Password string `json:"password"`
 	Auth     string `json:"auth"`
-	Name     string `json:"name"`
 }
 
 type auth struct {
-	users  []user
+	users  map[string]user
 	config gitlab.Config
 	db     module.GameDB
 }
@@ -29,7 +28,6 @@ func Auth(i *module.InternalService) {
 
 	i.Gate.POST("/api/v1/login/account", reflect.TypeOf(new(protocol.LoginReq)).Elem(), a.Login)
 	i.Gate.GET("/api/v1/user/currentUser", a.CurrentPlayer)
-	i.Gate.GET("/api/v1/user/notices", a.Notices)
 }
 
 func (a *auth) loadUsers() {
@@ -41,5 +39,8 @@ func (a *auth) loadUsers() {
 	if err := json.Unmarshal(data, users); err != nil {
 		log.Logger.Fatal("Unmarshal user.json", log.ErrorField(err))
 	}
-	a.users = *users
+	a.users = make(map[string]user)
+	for _, user := range *users {
+		a.users[user.Account] = user
+	}
 }

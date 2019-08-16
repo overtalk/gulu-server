@@ -17,7 +17,11 @@ func (g *gate) GET(relativePath string, handler module.GETHandler) {
 	}
 
 	g.engine.GET(relativePath, func(context *gin.Context) {
+		// set trace id
 		context.Set(TraceKey, GenTraceID(Param{PlayerID: "playerID", Url: relativePath}))
+		// set token
+		context.Set(TOKENKEY, context.GetHeader(TOKENKEY))
+
 		context.String(200, handler(context).Encode())
 	})
 }
