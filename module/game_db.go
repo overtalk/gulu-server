@@ -1,5 +1,7 @@
 package module
 
+// 对游戏数据库的操作
+
 import (
 	"gitlab.com/SausageShoot/admin-server/protocol"
 )

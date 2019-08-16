@@ -1,4 +1,4 @@
-package openid_test
+package gameopenid_test
 
 import (
 	"testing"

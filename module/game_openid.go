@@ -1,5 +1,7 @@
 package module
 
+// 游戏数据库的分库实现
+
 import (
 	"database/sql"
 )

@@ -4,9 +4,9 @@ import (
 	"github.com/spf13/viper"
 
 	"gitlab.com/SausageShoot/admin-server/module"
-	"gitlab.com/SausageShoot/admin-server/services/db/v1"
+	"gitlab.com/SausageShoot/admin-server/services/gamedb/v1"
+	"gitlab.com/SausageShoot/admin-server/services/gamegm/v1"
 	"gitlab.com/SausageShoot/admin-server/services/gate/v1"
-	"gitlab.com/SausageShoot/admin-server/services/gm/v1"
 	"gitlab.com/SausageShoot/admin-server/utils/gitlab"
 	"gitlab.com/SausageShoot/admin-server/utils/mysql"
 )
@@ -25,14 +25,14 @@ func Config() *config {
 }
 
 func (c *config) InternalService(port int) *module.InternalService {
-	gm := gm.GM(gitlab.Catcher(gitlab.Config{
+	gm := gamegm.GM(gitlab.Catcher(gitlab.Config{
 		Token: c.v.GetString(gmToken),
 		Ref:   c.v.GetString(gmBranch),
 		Pid:   c.v.GetInt(gmPid),
 		Url:   c.v.GetString(gmUrl),
 	}))
 	return &module.InternalService{
-		DB: db.Pool(mysql.Config{
+		DB: gamedb.Pool(mysql.Config{
 			Username: c.v.GetString(mySQLUsername),
 			Password: c.v.GetString(mySQLPassword),
 			Host:     c.v.GetString(mySQLHost),
