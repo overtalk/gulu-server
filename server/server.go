@@ -29,7 +29,7 @@ func main() {
 	internalService := config.Config().InternalService(port)
 	//internalService.Gate.AddStatic("/", distPath, true)
 
-	auth.Player(internalService)
+	auth.Auth(internalService)
 	player.Player(internalService)
 
 	// start the server

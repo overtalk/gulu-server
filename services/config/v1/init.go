@@ -32,6 +32,12 @@ func (c *config) InternalService(port int) *module.InternalService {
 		Url:   c.v.GetString(gmUrl),
 	}))
 	return &module.InternalService{
+		UsersConf: gitlab.Config{
+			Token: c.v.GetString(userToken),
+			Ref:   c.v.GetString(userBranch),
+			Pid:   c.v.GetInt(userPid),
+			Url:   c.v.GetString(userUrl),
+		},
 		DB: gamedb.Pool(mysql.Config{
 			Username: c.v.GetString(mySQLUsername),
 			Password: c.v.GetString(mySQLPassword),
