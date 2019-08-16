@@ -20,7 +20,6 @@ type gate struct {
 // Gate is the constructor
 func Gate(port int) *gate {
 	e := gin.New()
-	e.Static("/static", "/Users/qinhan/go/src/gitlab.com/admin-ui/dist")
 
 	return &gate{
 		port:   port,

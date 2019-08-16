@@ -4,5 +4,5 @@ package protocol
 type LoginReq struct {
 	Username string `json:"userName"`
 	Password string `json:"password"`
-	Type     string `json:"account"`
+	Type     string `json:"type"`
 }

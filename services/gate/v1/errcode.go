@@ -1,8 +1,13 @@
 package gate
 
 import (
+	"fmt"
+
 	"gitlab.com/SausageShoot/admin-server/errtable"
 )
+
+// common error
+var nilEngineErr = fmt.Errorf("gin engine is nil")
 
 const (
 	m = errtable.Gate

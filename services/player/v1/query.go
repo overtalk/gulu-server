@@ -9,6 +9,7 @@ import (
 )
 
 func (p *player) Query(ctx context.Context, requestMessage interface{}) protocol.Response {
+	return protocol.PostResponse{ErrCode: errtable.OkCode, ID: 200}
 	req, ok := requestMessage.(*protocol.PlayerQuery)
 	resp := protocol.PostResponse{ErrCode: errtable.OkCode}
 
