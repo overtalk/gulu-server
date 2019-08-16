@@ -15,7 +15,7 @@ func (a *auth) Login(ctx context.Context, requestMessage interface{}) protocol.R
 		log.Logger.Error("Convert", log.Field("request", requestMessage))
 		return protocol.PostResponse{
 			ErrCode: authErrCode1,
-			Msg:     "convert CommonOP request error",
+			Msg:     "convert Login request error",
 		}
 	}
 
@@ -23,7 +23,6 @@ func (a *auth) Login(ctx context.Context, requestMessage interface{}) protocol.R
 	if !isExist || user.Password != req.Password {
 		resp.Status = "error"
 	} else {
-		resp.CurrentAuthority = user.Auth
 		resp.Token = user.Account + "-token"
 	}
 

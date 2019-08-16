@@ -28,7 +28,6 @@ func Auth(i *module.InternalService) {
 
 	i.Gate.POST("/api/v1/login/account", reflect.TypeOf(new(protocol.LoginReq)).Elem(), a.Login)
 	i.Gate.GET("/api/v1/user/currentUser", a.CurrentPlayer)
-	i.Gate.GET("/api/v1/user/notices", a.Notices)
 }
 
 func (a *auth) loadUsers() {
