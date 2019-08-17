@@ -8,7 +8,7 @@ import (
 	"gitlab.com/SausageShoot/admin-server/utils/log"
 )
 
-func (p *player) CommonOP(ctx context.Context, requestMessage interface{}) protocol.Response {
+func (p *player) CommonOP(ctx context.Context, requestMessage interface{}) interface{} {
 	req, ok := requestMessage.(*protocol.CommonOP)
 	resp := protocol.PostResponse{ErrCode: errtable.OkCode}
 

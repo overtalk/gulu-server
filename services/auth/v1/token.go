@@ -7,7 +7,7 @@ import (
 	"gitlab.com/SausageShoot/admin-server/protocol"
 )
 
-func (a *auth) CurrentPlayer(ctx context.Context) protocol.Response {
+func (a *auth) CurrentPlayer(ctx context.Context) interface{} {
 	return protocol.CurrentResponse{
 		ErrCode:          errtable.OkCode,
 		Name:             "Serati Masss",

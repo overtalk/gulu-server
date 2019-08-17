@@ -7,7 +7,7 @@ import (
 	"gitlab.com/SausageShoot/admin-server/utils/log"
 )
 
-func (a *auth) Login(ctx context.Context, requestMessage interface{}) protocol.Response {
+func (a *auth) Login(ctx context.Context, requestMessage interface{}) interface{} {
 	req, ok := requestMessage.(*protocol.LoginReq)
 	resp := protocol.LoginResponse{Status: "ok", Type: "account"}
 

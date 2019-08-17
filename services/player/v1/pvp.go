@@ -8,7 +8,7 @@ import (
 	"gitlab.com/SausageShoot/admin-server/utils/log"
 )
 
-func (p *player) SetPvpInfo(ctx context.Context, requestMessage interface{}) protocol.Response {
+func (p *player) SetPvpInfo(ctx context.Context, requestMessage interface{}) interface{} {
 	req, ok := requestMessage.(*protocol.PvpInfo)
 	resp := protocol.PostResponse{ErrCode: errtable.OkCode}
 

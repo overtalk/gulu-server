@@ -1,6 +1,8 @@
 package gate
 
 import (
+	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"reflect"
 
@@ -27,6 +29,8 @@ func (g *gate) POST(relativePath string, ty reflect.Type, handler module.POSTHan
 		// set token
 		context.Set(TOKENKEY, context.GetHeader(TOKENKEY))
 
+		fmt.Println("token = ", context.GetHeader(TOKENKEY))
+
 		body, err := ioutil.ReadAll(context.Request.Body)
 		if err != nil {
 			log.Logger.Fatal("Read POST Request Body", log.ErrorField(err))
@@ -35,6 +39,17 @@ func (g *gate) POST(relativePath string, ty reflect.Type, handler module.POSTHan
 				Msg:     "read post request body error",
 			}.Encode())
 		}
-		context.String(200, handler(context, protocol.GetRequest(ty, body)).Encode())
+
+		resp := handler(context, protocol.GetRequest(ty, body))
+		data, err := json.Marshal(resp)
+		if err != nil {
+			log.Logger.Error("Response Encode",
+				log.ErrorField(err),
+				log.Field("method", "POST"),
+				log.Field("path", relativePath),
+				log.Field("resp", resp))
+			data = []byte("")
+		}
+		context.String(200, string(data))
 	})
 }

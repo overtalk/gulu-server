@@ -3,12 +3,10 @@ package module
 import (
 	"context"
 	"reflect"
-
-	"gitlab.com/SausageShoot/admin-server/protocol"
 )
 
-type POSTHandler func(ctx context.Context, requestMessage interface{}) protocol.Response
-type GETHandler func(ctx context.Context) protocol.Response
+type POSTHandler func(ctx context.Context, requestMessage interface{}) interface{}
+type GETHandler func(ctx context.Context) interface{}
 
 type Gate interface {
 	Start()
