@@ -1,9 +1,6 @@
 package gate
 
 import (
-	"encoding/json"
-	"fmt"
-	"io/ioutil"
 	"reflect"
 
 	"github.com/gin-gonic/gin"
@@ -29,27 +26,15 @@ func (g *gate) POST(relativePath string, ty reflect.Type, handler module.POSTHan
 		// set token
 		context.Set(TOKENKEY, context.GetHeader(TOKENKEY))
 
-		fmt.Println("token = ", context.GetHeader(TOKENKEY))
-
-		body, err := ioutil.ReadAll(context.Request.Body)
+		body, err := context.GetRawData()
 		if err != nil {
-			log.Logger.Fatal("Read POST Request Body", log.ErrorField(err))
-			context.String(200, protocol.PostResponse{
+			log.Logger.Error("Read POST Request Body", log.ErrorField(err))
+			context.JSON(200, protocol.PostResponse{
 				ErrCode: errCode2,
 				Msg:     "read post request body error",
-			}.Encode())
+			})
 		}
 
-		resp := handler(context, protocol.GetRequest(ty, body))
-		data, err := json.Marshal(resp)
-		if err != nil {
-			log.Logger.Error("Response Encode",
-				log.ErrorField(err),
-				log.Field("method", "POST"),
-				log.Field("path", relativePath),
-				log.Field("resp", resp))
-			data = []byte("")
-		}
-		context.String(200, string(data))
+		context.JSON(200, handler(context, protocol.GetRequest(ty, body)))
 	})
 }

@@ -9,10 +9,10 @@ import (
 
 func (a *auth) CurrentPlayer(ctx context.Context) interface{} {
 	return protocol.CurrentResponse{
-		ErrCode:          errtable.OkCode,
-		Name:             "Serati Masss",
-		Avatar:           "https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png",
-		Id:               0,
+		ErrCode: errtable.OkCode,
+		Name:    "Serati Masss",
+		Avatar:  "https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png",
+		//Id:               0,
 		CurrentAuthority: "admin",
 	}
 

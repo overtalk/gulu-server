@@ -26,3 +26,10 @@ type CommonOP struct {
 	ID int `json:"id"`
 	OP int `json:"op"`
 }
+
+// post response from client
+type PostResponse struct {
+	ErrCode int    `json:"errcode"`
+	Msg     string `json:"msg"`
+	ID      int    `json:"id"`
+}
