@@ -157,6 +157,12 @@
 			"revisionTime": "2019-06-11T12:32:18Z"
 		},
 		{
+			"checksumSHA1": "5g1SR0vEf3PvpLwyke1TZjPeskc=",
+			"path": "github.com/jiachuhuang/concurrentcache",
+			"revision": "b7fe702487b5eff769ef553063a462e8ea3edc18",
+			"revisionTime": "2017-12-07T01:51:50Z"
+		},
+		{
 			"checksumSHA1": "4DgEcOv2o9NyZAHCbdS76mToqpU=",
 			"path": "github.com/json-iterator/go",
 			"revision": "27518f6661eba504be5a7a9a9f6d9460d892ade3",
