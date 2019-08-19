@@ -31,6 +31,9 @@ func Player(pl model.Player, db *sql.DB, gm module.GameGM) *player {
 
 // write data to db
 func (p *player) Apply() error {
+	if len(p.update) == 0 {
+		return nil
+	}
 	where := map[string]interface{}{
 		"id = ": p.pModel.Id,
 	}

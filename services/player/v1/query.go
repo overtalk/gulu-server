@@ -5,6 +5,7 @@ import (
 
 	"gitlab.com/SausageShoot/admin-server/errtable"
 	"gitlab.com/SausageShoot/admin-server/protocol"
+	"gitlab.com/SausageShoot/admin-server/utils/hub000"
 	"gitlab.com/SausageShoot/admin-server/utils/log"
 )
 
@@ -31,6 +32,15 @@ func (p *player) Query(ctx context.Context, requestMessage interface{}) interfac
 	resp.Player.Diamond = player.Diamond
 	resp.Player.Experience = player.Experience
 	resp.Player.Strength = player.Strength
+	// arena
+	arena := hub000.DecodeArena(player.Arena)
+	resp.Player.Arena = int(arena.Lock)
+	scores := make([]int, 10)
+	//scores := make([]int, 10)
+	for k, v := range arena.CupHide {
+		scores[k-1] = int(v)
+	}
+	resp.Player.Score = scores
 
 	return resp
 }

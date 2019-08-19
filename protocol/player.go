@@ -1,11 +1,13 @@
 package protocol
 
 type Player struct {
-	ID         int `json:"id"`
-	Gold       int `json:"gold"`
-	Diamond    int `json:"diamond"`
-	Experience int `json:"experience"`
-	Strength   int `json:"strength"`
+	ID         int   `json:"id"`
+	Gold       int   `json:"gold"`
+	Diamond    int   `json:"diamond"`
+	Experience int   `json:"experience"`
+	Strength   int   `json:"strength"`
+	Arena      int   `json:"arena"`
+	Score      []int `json:"score"`
 }
 
 type PlayerQuery struct {
@@ -15,9 +17,9 @@ type PlayerQuery struct {
 
 // PvpInfo
 type PvpInfo struct {
-	ID    int `json:"id"`
-	Arena int `json:"arena"`
-	Cup   int `json:"cup"`
+	ID    int   `json:"id"`
+	Arena int   `json:"arena"`
+	Socre []int `json:"score"`
 }
 
 // basic info

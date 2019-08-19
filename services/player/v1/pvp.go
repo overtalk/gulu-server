@@ -2,6 +2,7 @@ package player
 
 import (
 	"context"
+	"fmt"
 
 	"gitlab.com/SausageShoot/admin-server/errtable"
 	"gitlab.com/SausageShoot/admin-server/protocol"
@@ -18,6 +19,8 @@ func (p *player) SetPvpInfo(ctx context.Context, requestMessage interface{}) int
 		resp.Msg = "convert pvp request error"
 		return resp
 	}
+
+	fmt.Println(req)
 
 	player, err := p.db.GetPlayerByID(req.ID)
 	if err != nil {
