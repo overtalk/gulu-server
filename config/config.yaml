@@ -14,3 +14,5 @@ user:
   pid: 107
   branch: master
   url: https://git.xindong.com/api/v4
+jwt:
+  signkey: sdkjflkdgjlkdfg

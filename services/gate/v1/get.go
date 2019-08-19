@@ -15,9 +15,6 @@ func (g *gate) GET(relativePath string, handler module.GETHandler) {
 	}
 
 	g.api.GET(relativePath, func(context *gin.Context) {
-		// set token
-		context.Set(TOKENKEY, context.GetHeader(TOKENKEY))
-
 		context.IndentedJSON(200, handler(context))
 	})
 }

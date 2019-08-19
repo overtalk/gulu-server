@@ -6,7 +6,7 @@ import (
 	"gitlab.com/SausageShoot/admin-server/module"
 )
 
-func (a *db) CheckPlayer(username, password string) (int, error) {
+func (a *db) CheckUser(username, password string) (int64, error) {
 	user, isExist := a.users[username]
 	if !isExist || user.Password != password {
 		return 0, fmt.Errorf("invaild login info")
@@ -14,11 +14,11 @@ func (a *db) CheckPlayer(username, password string) (int, error) {
 	return user.ID, nil
 }
 
-func (a *db) GetAuth(playerID int) module.Permission {
+func (a *db) GetUser(id int64) (*module.User, error) {
 	for _, v := range a.users {
-		if v.ID == playerID {
-			return module.Permission(v.Auth)
+		if v.ID == id {
+			return &v, nil
 		}
 	}
-	return ""
+	return nil, fmt.Errorf("invaild player id")
 }

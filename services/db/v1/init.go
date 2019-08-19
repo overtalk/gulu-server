@@ -7,16 +7,9 @@ import (
 	"gitlab.com/SausageShoot/admin-server/utils/log"
 )
 
-type user struct {
-	ID       int    `json:"id"`
-	Account  string `json:"account"`
-	Password string `json:"password"`
-	Auth     string `json:"auth"`
-}
-
 type db struct {
 	// 所有后台管理用户的账号密码
-	users  map[string]user
+	users  map[string]module.User
 	source module.GMSource
 }
 
@@ -28,7 +21,7 @@ func DB(s module.GMSource) *db {
 }
 
 func (a *db) loadUsers() {
-	users := new([]user)
+	users := new([]module.User)
 	data, err := a.source.Fetch("config/user.json")
 	if err != nil {
 		log.Logger.Fatal("Read user.json", log.ErrorField(err))
@@ -36,7 +29,7 @@ func (a *db) loadUsers() {
 	if err := json.Unmarshal(data, users); err != nil {
 		log.Logger.Fatal("Unmarshal user.json", log.ErrorField(err))
 	}
-	a.users = make(map[string]user)
+	a.users = make(map[string]module.User)
 	for _, user := range *users {
 		a.users[user.Account] = user
 	}

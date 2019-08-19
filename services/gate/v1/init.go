@@ -13,8 +13,6 @@ import (
 	"gitlab.com/SausageShoot/admin-server/utils/log"
 )
 
-const TOKENKEY = "Authorization"
-
 type gate struct {
 	port   int
 	srv    *http.Server

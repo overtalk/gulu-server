@@ -20,9 +20,6 @@ func (g *gate) POST(relativePath string, ty reflect.Type, handler module.POSTHan
 	}
 
 	g.api.POST(relativePath, func(context *gin.Context) {
-		// set token
-		context.Set(TOKENKEY, context.GetHeader(TOKENKEY))
-
 		req := reflect.New(ty).Interface()
 		if err := context.Bind(req); err != nil {
 			log.Logger.Error("Read POST Request Body", log.ErrorField(err))

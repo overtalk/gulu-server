@@ -10,11 +10,10 @@ import (
 type auth struct {
 	db     module.DB
 	gameDB module.GameDB
-	cache  module.Cache
 }
 
 func Auth(i *module.InternalService) {
-	a := auth{gameDB: i.GameDB, cache: i.Cache, db: i.DB}
+	a := auth{gameDB: i.GameDB, db: i.DB}
 
 	i.Gate.POST("/v1/login/account", reflect.TypeOf(new(protocol.LoginReq)).Elem(), a.Login)
 	i.Gate.GET("/v1/user/currentUser", a.CurrentPlayer)

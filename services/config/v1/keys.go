@@ -19,4 +19,7 @@ const (
 	userPid    = "user.pid"
 	userBranch = "user.branch"
 	userUrl    = "user.url"
+
+	// jwt
+	jwtSignKey = "jwt.signkey"
 )

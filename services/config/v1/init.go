@@ -4,11 +4,11 @@ import (
 	"github.com/spf13/viper"
 
 	"gitlab.com/SausageShoot/admin-server/module"
-	"gitlab.com/SausageShoot/admin-server/services/cache/v1"
 	"gitlab.com/SausageShoot/admin-server/services/db/v1"
 	"gitlab.com/SausageShoot/admin-server/services/gamedb/v1"
 	"gitlab.com/SausageShoot/admin-server/services/gamegm/v1"
 	"gitlab.com/SausageShoot/admin-server/services/gate/v1"
+	"gitlab.com/SausageShoot/admin-server/utils/gin-middleware/jwt"
 	"gitlab.com/SausageShoot/admin-server/utils/gitlab"
 	"gitlab.com/SausageShoot/admin-server/utils/mysql"
 )
@@ -27,6 +27,12 @@ func Config() *config {
 }
 
 func (c *config) InternalService(port int) *module.InternalService {
+	// 设置jwt sign key
+	key := c.v.GetString(jwtSignKey)
+	if len(key) > 0 {
+		jwt.SetSignKey(c.v.GetString(jwtSignKey))
+	}
+
 	gm := gamegm.GM(gitlab.Catcher(gitlab.Config{
 		Token: c.v.GetString(gmToken),
 		Ref:   c.v.GetString(gmBranch),
@@ -41,9 +47,8 @@ func (c *config) InternalService(port int) *module.InternalService {
 			DBName:   c.v.GetString(mySQLDBName),
 			Port:     c.v.GetInt(mySQLPort),
 		}, gm),
-		Gate:  gate.Gate(port),
-		GM:    gm,
-		Cache: cache.Cache(),
+		Gate: gate.Gate(port),
+		GM:   gm,
 		DB: db.DB(gitlab.Catcher(gitlab.Config{
 			Token: c.v.GetString(userToken),
 			Ref:   c.v.GetString(userBranch),

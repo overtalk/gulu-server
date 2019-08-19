@@ -2,11 +2,10 @@ package auth
 
 import (
 	"context"
-	"fmt"
 
 	"gitlab.com/SausageShoot/admin-server/errtable"
-	//"gitlab.com/SausageShoot/admin-server/errtable"
 	"gitlab.com/SausageShoot/admin-server/protocol"
+	"gitlab.com/SausageShoot/admin-server/utils/gin-middleware/jwt"
 	"gitlab.com/SausageShoot/admin-server/utils/log"
 )
 
@@ -21,13 +20,17 @@ func (a *auth) Login(ctx context.Context, requestMessage interface{}) interface{
 		return resp
 	}
 
-	playerID, err := a.db.CheckPlayer(req.Username, req.Password)
+	playerID, err := a.db.CheckUser(req.Username, req.Password)
 	if err != nil {
 		resp.Status = "error"
 	} else {
-		fmt.Println(playerID)
-		// todo: gen token
-		resp.Token = req.Username + "-token"
+		token, err := jwt.NewJWT().CreateToken(jwt.CustomClaims{ID: int(playerID)})
+		if err != nil {
+			resp.ErrCode = authErrCode2
+			resp.Msg = "gen jwt error"
+			return resp
+		}
+		resp.Token = token
 	}
 
 	return resp
