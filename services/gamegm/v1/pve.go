@@ -21,7 +21,7 @@ func (g *gm) loadPve() {
 			log.ErrorField(err))
 	}
 
-	g.pveNum = len(stages)
+	g.pveNum = len(stages) - 1
 }
 func (g *gm) GetPveCount() int {
 	return g.pveNum
