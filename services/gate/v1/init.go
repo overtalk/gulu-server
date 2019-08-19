@@ -8,6 +8,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 
+	"gitlab.com/SausageShoot/admin-server/utils/gin-middleware/jwt"
+	"gitlab.com/SausageShoot/admin-server/utils/gin-middleware/trace"
 	"gitlab.com/SausageShoot/admin-server/utils/log"
 )
 
@@ -22,6 +24,7 @@ type gate struct {
 // Gate is the constructor
 func Gate(port int) *gate {
 	e := gin.New()
+	e.Use(jwt.JWTAuth(), trace.Trace())
 
 	return &gate{
 		port:   port,

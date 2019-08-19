@@ -8,7 +8,6 @@ import (
 	"gitlab.com/SausageShoot/admin-server/module"
 	"gitlab.com/SausageShoot/admin-server/protocol"
 	"gitlab.com/SausageShoot/admin-server/utils/log"
-	. "gitlab.com/SausageShoot/admin-server/utils/trace"
 )
 
 func (g *gate) POST(relativePath string, ty reflect.Type, handler module.POSTHandler) {
@@ -21,13 +20,11 @@ func (g *gate) POST(relativePath string, ty reflect.Type, handler module.POSTHan
 	}
 
 	g.engine.POST(relativePath, func(context *gin.Context) {
-		// set trace ID
-		context.Set(TraceKey, GenTraceID(Param{PlayerID: "playerID", Url: relativePath}))
 		// set token
 		context.Set(TOKENKEY, context.GetHeader(TOKENKEY))
 
-		body, err := context.GetRawData()
-		if err != nil {
+		req := reflect.New(ty).Interface()
+		if err := context.Bind(req); err != nil {
 			log.Logger.Error("Read POST Request Body", log.ErrorField(err))
 			context.JSON(200, protocol.PostResponse{
 				ErrCode: errCode2,
@@ -35,6 +32,6 @@ func (g *gate) POST(relativePath string, ty reflect.Type, handler module.POSTHan
 			})
 		}
 
-		context.JSON(200, handler(context, protocol.GetRequest(ty, body)))
+		context.JSON(200, handler(context, req))
 	})
 }

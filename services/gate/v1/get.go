@@ -4,7 +4,6 @@ import (
 	"github.com/gin-gonic/gin"
 	"gitlab.com/SausageShoot/admin-server/module"
 	"gitlab.com/SausageShoot/admin-server/utils/log"
-	. "gitlab.com/SausageShoot/admin-server/utils/trace"
 )
 
 func (g *gate) GET(relativePath string, handler module.GETHandler) {
@@ -16,8 +15,6 @@ func (g *gate) GET(relativePath string, handler module.GETHandler) {
 	}
 
 	g.engine.GET(relativePath, func(context *gin.Context) {
-		// set trace id
-		context.Set(TraceKey, GenTraceID(Param{PlayerID: "playerID", Url: relativePath}))
 		// set token
 		context.Set(TOKENKEY, context.GetHeader(TOKENKEY))
 
