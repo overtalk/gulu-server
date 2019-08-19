@@ -19,13 +19,18 @@ func (p *player) Query(ctx context.Context, requestMessage interface{}) interfac
 		return resp
 	}
 
-	if err := p.db.QueryPlayer(req); err != nil {
+	player, err := p.db.QueryPlayer(req)
+	if err != nil {
 		resp.ErrCode = commonErrCode2
 		resp.Msg = "Invalid PlayerID"
 		return resp
 	}
 
-	resp.ID = req.ID
+	resp.Player.ID = req.ID
+	resp.Player.Gold = player.Gold
+	resp.Player.Diamond = player.Diamond
+	resp.Player.Experience = player.Experience
+	resp.Player.Strength = player.Strength
 
 	return resp
 }

@@ -1,5 +1,13 @@
 package protocol
 
+type Player struct {
+	ID         int `json:"id"`
+	Gold       int `json:"gold"`
+	Diamond    int `json:"diamond"`
+	Experience int `json:"experience"`
+	Strength   int `json:"strength"`
+}
+
 type PlayerQuery struct {
 	ID       int    `json:"id"`
 	Nickname string `json:"nickname"`
@@ -30,5 +38,5 @@ type CommonOP struct {
 // post response from client
 type PostResponse struct {
 	Response
-	ID int `json:"id"`
+	Player Player `json:"player"`
 }

@@ -36,7 +36,26 @@ func (p *pool) GetPlayerByID(id int) (module.GamePlayer, error) {
 
 }
 
-func (p *pool) QueryPlayer(query *protocol.PlayerQuery) error {
-	_, err := p.getDBByPlayerID(query.ID)
-	return err
+func (p *pool) QueryPlayer(query *protocol.PlayerQuery) (*model.Player, error) {
+	db, err := p.getDBByPlayerID(query.ID)
+	if err != nil {
+		return nil, err
+	}
+
+	// query data
+	where := map[string]interface{}{
+		"id = ": query.ID,
+	}
+	cond, values, err := builder.BuildSelect(playerTable, where, []string{"*"})
+	if err != nil {
+		return nil, err
+	}
+
+	rows, err := db.Query(cond, values...)
+	var pl model.Player
+	if err := scanner.Scan(rows, &pl); err != nil {
+		return nil, err
+	}
+
+	return &pl, err
 }

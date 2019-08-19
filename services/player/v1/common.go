@@ -29,13 +29,26 @@ func (p *player) CommonOP(ctx context.Context, requestMessage interface{}) inter
 		return resp
 	}
 
-	if err := player.CommonOP(req); err != nil {
-		log.Logger.Error("set pvp info",
+	switch req.OP {
+	case 1:
+		err = player.GetAllWeapons(req.ID)
+	case 2:
+		err = player.ClearWeapons(req.ID)
+	case 3:
+		err = player.GetAllFashions(req.ID)
+	case 4:
+		err = player.ClearFashions(req.ID)
+	case 5:
+		err = player.PveUnlock(req.ID)
+	}
+
+	if err != nil {
+		log.Logger.Error("common op",
 			log.ErrorField(err),
 			log.Field("todo", req),
 			log.Field("id", req.ID))
 		resp.ErrCode = commonErrCode3
-		resp.Msg = "DAO ERROR(set pvp info)"
+		resp.Msg = "DAO ERROR(common op)"
 		return resp
 	}
 
@@ -44,7 +57,7 @@ func (p *player) CommonOP(ctx context.Context, requestMessage interface{}) inter
 			log.ErrorField(err),
 			log.Field("id", req.ID))
 		resp.ErrCode = commonErrCode4
-		resp.Msg = "DAO ERROR(apply player after set basic info)"
+		resp.Msg = "DAO ERROR(apply player after common op)"
 		return resp
 	}
 

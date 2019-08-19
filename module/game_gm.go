@@ -9,4 +9,5 @@ type GMSource interface {
 type GameGM interface {
 	GetWeaponList() []int64
 	GetFashionList() []int64
+	GetPveCount() int
 }

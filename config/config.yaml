@@ -7,7 +7,7 @@ mysql:
 gm:
   token: uApHngkjnJCsZLXwvx1j
   pid: 110
-  branch: master
+  branch: dev
   url: https://git.xindong.com/api/v4
 user:
   token: uApHngkjnJCsZLXwvx1j
