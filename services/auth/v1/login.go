@@ -2,6 +2,8 @@ package auth
 
 import (
 	"context"
+	"fmt"
+
 	//"gitlab.com/SausageShoot/admin-server/errtable"
 	"gitlab.com/SausageShoot/admin-server/protocol"
 	"gitlab.com/SausageShoot/admin-server/utils/log"
@@ -19,11 +21,13 @@ func (a *auth) Login(ctx context.Context, requestMessage interface{}) interface{
 		}
 	}
 
-	user, isExist := a.users[req.Username]
-	if !isExist || user.Password != req.Password {
+	playerID, err := a.db.CheckPlayer(req.Username, req.Password)
+	if err != nil {
 		resp.Status = "error"
 	} else {
-		resp.Token = user.Account + "-token"
+		fmt.Println(playerID)
+		// todo: gen token
+		resp.Token = req.Username + "-token"
 	}
 
 	return resp

@@ -4,6 +4,8 @@ import (
 	"github.com/spf13/viper"
 
 	"gitlab.com/SausageShoot/admin-server/module"
+	"gitlab.com/SausageShoot/admin-server/services/cache/v1"
+	"gitlab.com/SausageShoot/admin-server/services/db/v1"
 	"gitlab.com/SausageShoot/admin-server/services/gamedb/v1"
 	"gitlab.com/SausageShoot/admin-server/services/gamegm/v1"
 	"gitlab.com/SausageShoot/admin-server/services/gate/v1"
@@ -32,20 +34,21 @@ func (c *config) InternalService(port int) *module.InternalService {
 		Url:   c.v.GetString(gmUrl),
 	}))
 	return &module.InternalService{
-		UsersConf: gitlab.Config{
-			Token: c.v.GetString(userToken),
-			Ref:   c.v.GetString(userBranch),
-			Pid:   c.v.GetInt(userPid),
-			Url:   c.v.GetString(userUrl),
-		},
-		DB: gamedb.Pool(mysql.Config{
+		GameDB: gamedb.Pool(mysql.Config{
 			Username: c.v.GetString(mySQLUsername),
 			Password: c.v.GetString(mySQLPassword),
 			Host:     c.v.GetString(mySQLHost),
 			DBName:   c.v.GetString(mySQLDBName),
 			Port:     c.v.GetInt(mySQLPort),
 		}, gm),
-		Gate: gate.Gate(port),
-		GM:   gm,
+		Gate:  gate.Gate(port),
+		GM:    gm,
+		Cache: cache.Cache(),
+		DB: db.DB(gitlab.Catcher(gitlab.Config{
+			Token: c.v.GetString(userToken),
+			Ref:   c.v.GetString(userBranch),
+			Pid:   c.v.GetInt(userPid),
+			Url:   c.v.GetString(userUrl),
+		})),
 	}
 }

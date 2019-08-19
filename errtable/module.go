@@ -12,7 +12,7 @@ const (
 	Player   ErrModule = 5
 
 	GateString     string = "Gate"
-	DBString       string = "DB"
+	DBString       string = "GameDB"
 	AuthString     string = "Auth"
 	GMString       string = "GM"
 	OpenIdDBString string = "OpenIdDB"
