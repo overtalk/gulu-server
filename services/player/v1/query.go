@@ -10,14 +10,13 @@ import (
 
 func (p *player) Query(ctx context.Context, requestMessage interface{}) interface{} {
 	req, ok := requestMessage.(*protocol.PlayerQuery)
-	resp := protocol.PostResponse{ErrCode: errtable.OkCode}
+	resp := protocol.PostResponse{Response: protocol.Response{ErrCode: errtable.OkCode}}
 
 	if !ok {
 		log.Logger.Error("Convert", log.Field("request", requestMessage))
-		return protocol.PostResponse{
-			ErrCode: commonErrCode1,
-			Msg:     "convert Query request error",
-		}
+		resp.ErrCode = commonErrCode1
+		resp.Msg = "convert Query request error"
+		return resp
 	}
 
 	if err := p.db.QueryPlayer(req); err != nil {

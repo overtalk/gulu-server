@@ -14,7 +14,7 @@ func (g *gate) GET(relativePath string, handler module.GETHandler) {
 			log.ErrorField(nilEngineErr))
 	}
 
-	g.engine.GET(relativePath, func(context *gin.Context) {
+	g.api.GET(relativePath, func(context *gin.Context) {
 		// set token
 		context.Set(TOKENKEY, context.GetHeader(TOKENKEY))
 

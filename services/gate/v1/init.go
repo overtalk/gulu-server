@@ -19,16 +19,19 @@ type gate struct {
 	port   int
 	srv    *http.Server
 	engine *gin.Engine
+	api    *gin.RouterGroup
 }
 
 // Gate is the constructor
 func Gate(port int) *gate {
 	e := gin.New()
-	e.Use(jwt.JWTAuth(), trace.Trace())
+	api := e.Group("/api")
+	api.Use(jwt.JWTAuth(), trace.Trace())
 
 	return &gate{
 		port:   port,
 		engine: e,
+		api:    api,
 	}
 }
 

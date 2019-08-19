@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 
+	"gitlab.com/SausageShoot/admin-server/errtable"
 	//"gitlab.com/SausageShoot/admin-server/errtable"
 	"gitlab.com/SausageShoot/admin-server/protocol"
 	"gitlab.com/SausageShoot/admin-server/utils/log"
@@ -11,14 +12,13 @@ import (
 
 func (a *auth) Login(ctx context.Context, requestMessage interface{}) interface{} {
 	req, ok := requestMessage.(*protocol.LoginReq)
-	resp := protocol.LoginResponse{Status: "ok", Type: "account"}
+	resp := protocol.LoginResponse{Response: protocol.Response{ErrCode: errtable.OkCode}, Status: "ok", Type: "account"}
 
 	if !ok {
 		log.Logger.Error("Convert", log.Field("request", requestMessage))
-		return protocol.PostResponse{
-			ErrCode: authErrCode1,
-			Msg:     "convert Login request error",
-		}
+		resp.ErrCode = authErrCode1
+		resp.Msg = "convert Login request error"
+		return resp
 	}
 
 	playerID, err := a.db.CheckPlayer(req.Username, req.Password)

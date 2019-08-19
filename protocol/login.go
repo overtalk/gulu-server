@@ -9,14 +9,14 @@ type LoginReq struct {
 
 // login response from client
 type LoginResponse struct {
+	Response
 	Status string `json:"status"`
 	Type   string `json:"type"`
 	Token  string `json:"token"`
 }
 
 type CurrentResponse struct {
-	ErrCode          int    `json:"errcode"`
-	Msg              string `json:"msg"`
+	Response
 	Name             string `json:"name"`
 	Avatar           string `json:"avatar"`
 	CurrentAuthority string `json:"currentAuthority"`

@@ -19,14 +19,14 @@ func (g *gate) POST(relativePath string, ty reflect.Type, handler module.POSTHan
 			log.ErrorField(nilEngineErr))
 	}
 
-	g.engine.POST(relativePath, func(context *gin.Context) {
+	g.api.POST(relativePath, func(context *gin.Context) {
 		// set token
 		context.Set(TOKENKEY, context.GetHeader(TOKENKEY))
 
 		req := reflect.New(ty).Interface()
 		if err := context.Bind(req); err != nil {
 			log.Logger.Error("Read POST Request Body", log.ErrorField(err))
-			context.JSON(200, protocol.PostResponse{
+			context.JSON(200, protocol.Response{
 				ErrCode: errCode2,
 				Msg:     "read post request body error",
 			})
