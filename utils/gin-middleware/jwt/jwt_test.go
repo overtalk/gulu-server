@@ -10,7 +10,7 @@ func TestJWTAuth(t *testing.T) {
 	j := jwt.NewJWT()
 
 	token, err := j.CreateToken(jwt.CustomClaims{
-		ID: "aa",
+		ID: 12,
 	})
 
 	if err != nil {
