@@ -15,9 +15,13 @@ type LoginResponse struct {
 	Token  string `json:"token"`
 }
 
-type CurrentResponse struct {
-	Response
+type UserInfo struct {
 	Name             string `json:"name"`
 	Avatar           string `json:"avatar"`
 	CurrentAuthority string `json:"currentAuthority"`
+}
+
+type CurrentResponse struct {
+	Response
+	UserInfo UserInfo `json:"userInfo"`
 }

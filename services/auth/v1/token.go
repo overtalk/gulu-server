@@ -12,7 +12,9 @@ import (
 func (a *auth) CurrentPlayer(ctx context.Context) interface{} {
 	resp := protocol.CurrentResponse{
 		Response: protocol.Response{ErrCode: errtable.OkCode},
-		Avatar:   "https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png",
+		UserInfo: protocol.UserInfo{
+			Avatar: "https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png",
+		},
 	}
 	user, err := a.db.GetUser(parse.Int(ctx.Value(jwt.ID)))
 	if err != nil {
@@ -21,7 +23,7 @@ func (a *auth) CurrentPlayer(ctx context.Context) interface{} {
 		return resp
 	}
 
-	resp.Name = user.Account
-	resp.CurrentAuthority = user.Auth
+	resp.UserInfo.Name = user.Account
+	resp.UserInfo.CurrentAuthority = user.Auth
 	return resp
 }
