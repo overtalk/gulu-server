@@ -12,15 +12,15 @@ import (
 )
 
 var (
-	port     int
-	dev      bool
-	logLevel string
-	distPath string
+	port          int
+	devConfigPath string
+	logLevel      string
+	distPath      string
 )
 
 func main() {
 	flag.IntVar(&port, "port", 9000, "server port")
-	flag.BoolVar(&dev, "dev", false, "`dev` mode use local file config")
+	flag.StringVar(&devConfigPath, "config-path", "", "config path for dev mode")
 	flag.StringVar(&logLevel, "log-level", "info", "log level, optional( debug | info | warn | error | dpanic | panic | fatal), default is info")
 	flag.StringVar(&distPath, "dist-path", "/", "static dist path")
 	flag.Parse()
@@ -28,7 +28,7 @@ func main() {
 	// init logger
 	log.InitLogger(logLevel)
 
-	internalService := config.Config(dev).InternalService(port)
+	internalService := config.Config(devConfigPath).InternalService(port)
 	//internalService.Gate.AddStatic("/", distPath, true)
 
 	auth.Auth(internalService)

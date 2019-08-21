@@ -13,10 +13,9 @@ import (
 
 const (
 	configFile = "config"
-	configPath = "$GOPATH/src/gitlab.com/SausageShoot/admin-server/config"
 )
 
-func (c *config) getLocalConfig() {
+func (c *config) getLocalConfig(configPath string) {
 	c.v.SetConfigName(configFile)
 	c.v.AddConfigPath(configPath)
 	if err := c.v.ReadInConfig(); err != nil {

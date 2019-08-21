@@ -17,12 +17,12 @@ type config struct {
 	v *viper.Viper
 }
 
-func Config(dev bool) *config {
+func Config(configPath string) *config {
 	c := &config{v: viper.New()}
 
 	// get config
-	if dev {
-		c.getLocalConfig()
+	if len(configPath) != 0 {
+		c.getLocalConfig(configPath)
 	} else {
 		c.getRemoteConfig()
 	}
