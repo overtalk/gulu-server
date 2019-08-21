@@ -22,7 +22,7 @@ func DB(s module.GMSource) *db {
 
 func (a *db) loadUsers() {
 	users := new([]module.User)
-	data, err := a.source.Fetch("config/user.json")
+	data, err := a.source.Fetch("users.json")
 	if err != nil {
 		log.Logger.Fatal("Read user.json", log.ErrorField(err))
 	}
