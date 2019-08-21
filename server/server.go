@@ -22,14 +22,17 @@ func main() {
 	flag.IntVar(&port, "port", 9000, "server port")
 	flag.StringVar(&devConfigPath, "config-path", "", "config path for dev mode")
 	flag.StringVar(&logLevel, "log-level", "info", "log level, optional( debug | info | warn | error | dpanic | panic | fatal), default is info")
-	flag.StringVar(&distPath, "dist-path", "/", "static dist path")
+	flag.StringVar(&distPath, "dist-path", "", "static dist path")
 	flag.Parse()
 
 	// init logger
 	log.InitLogger(logLevel)
 
 	internalService := config.Config(devConfigPath).InternalService(port)
-	//internalService.Gate.AddStatic("/", distPath, true)
+	// add dist
+	if len(distPath) != 0 {
+		internalService.Gate.AddStatic("/", distPath, true)
+	}
 
 	auth.Auth(internalService)
 	player.Player(internalService)
