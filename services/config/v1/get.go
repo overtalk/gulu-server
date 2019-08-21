@@ -58,6 +58,7 @@ func (c *config) getRemoteConfig() {
 		log.Logger.Fatal("Get File Data", log.ErrorField(err))
 	}
 
+	c.v.SetConfigType("yaml")
 	if err := c.v.ReadConfig(bytes.NewBuffer(configData)); err != nil {
 		if _, ok := err.(viper.ConfigFileNotFoundError); ok {
 			// Config file not found; ignore error if desired
